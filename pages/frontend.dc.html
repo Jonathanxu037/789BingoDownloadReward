@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>前台可交互原型 · H5 与 APP</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Nunito+Sans:wght@400;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#6D28D9}a:hover{color:#4C1D95}
+.spin{animation:spin 0.9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/*ANIMCSS*/
+.coin{position:absolute;left:204px;top:402px;width:36px;height:30px;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:0;filter:drop-shadow(0 0 6px rgba(255,200,60,0.9))}
+.ca{background-image:url(../assets/81e7fec477abd04264f485edffb20c07.png)}.cb{background-image:url(../assets/1a89d9337a85f000989f5007821f1c01.png)}.ce{background-image:url(../assets/b197fa6f28fef679dcfe344a82660906.png)}
+.j1{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.43s forwards}.j2{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.53s forwards}.j3{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 0.63s forwards}.j4{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.73s forwards}.j5{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.83s forwards}.j6{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 0.93s forwards}.j7{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 1.03s forwards}.j8{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 1.13s forwards}.j9{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 1.23s forwards}.j10{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 1.33s forwards}.j11{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 1.43s forwards}.j12{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 1.53s forwards}
+.spark{position:absolute;left:217px;top:412px;width:10px;height:10px;border-radius:999px;background:radial-gradient(circle,#FFF6C8 0%,#FFC93C 55%,rgba(255,201,60,0) 100%);opacity:0}
+.c1{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.25s forwards}.k1{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.34s forwards}
+.c2{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.35s forwards}.k2{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.44s forwards}
+.c3{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 0.45s forwards}.k3{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 0.54s forwards}
+.c4{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.55s forwards}.k4{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.64s forwards}
+.c5{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.65s forwards}.k5{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.74s forwards}
+.c6{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 0.75s forwards}.k6{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 0.84s forwards}
+.c7{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.85s forwards}.k7{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 0.94s forwards}
+.c8{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 0.95s forwards}.k8{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 1.04s forwards}
+.c9{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 1.05s forwards}.k9{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 1.14s forwards}
+.c10{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 1.15s forwards}.k10{animation:swirlA 1.5s cubic-bezier(.45,.05,.55,.95) 1.24s forwards}
+.c11{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 1.25s forwards}.k11{animation:swirlB 1.5s cubic-bezier(.45,.05,.55,.95) 1.34s forwards}
+.c12{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 1.35s forwards}.k12{animation:swirlC 1.5s cubic-bezier(.45,.05,.55,.95) 1.44s forwards}
+@keyframes swirlA{0%{opacity:0;transform:translate(0,0) scale(0.6) rotate(0deg)}8%{opacity:1}22%{transform:translate(100px,-22px) scale(1.15) rotate(-14deg)}42%{transform:translate(82px,-115px) scale(1.05) rotate(10deg)}58%{transform:translate(108px,-178px) scale(0.95) rotate(-10deg)}74%{opacity:1;transform:translate(122px,-252px) scale(0.85) rotate(12deg)}100%{opacity:0.25;transform:translate(-92px,-389px) scale(0.45) rotate(0deg)}}
+@keyframes swirlB{0%{opacity:0;transform:translate(0,0) scale(0.6) rotate(0deg)}8%{opacity:1}22%{transform:translate(116px,-32px) scale(1.15) rotate(-14deg)}42%{transform:translate(98px,-125px) scale(1.05) rotate(10deg)}58%{transform:translate(124px,-188px) scale(0.95) rotate(-10deg)}74%{opacity:1;transform:translate(138px,-262px) scale(0.85) rotate(12deg)}100%{opacity:0.25;transform:translate(-92px,-389px) scale(0.45) rotate(0deg)}}
+@keyframes swirlC{0%{opacity:0;transform:translate(0,0) scale(0.6) rotate(0deg)}8%{opacity:1}22%{transform:translate(86px,-14px) scale(1.15) rotate(-14deg)}42%{transform:translate(68px,-107px) scale(1.05) rotate(10deg)}58%{transform:translate(94px,-170px) scale(0.95) rotate(-10deg)}74%{opacity:1;transform:translate(108px,-244px) scale(0.85) rotate(12deg)}100%{opacity:0.25;transform:translate(-92px,-389px) scale(0.45) rotate(0deg)}}
+.loop .coin,.loop .spark,.loop .spark2{animation-iteration-count:infinite}
+.stream{position:absolute;left:228px;top:360px;width:22px;height:22px;border-radius:999px;background:radial-gradient(circle at 35% 30%,#FFF3B0 0%,#FFD24A 45%,#E39A00 100%);border:2px solid #B86E00;box-sizing:border-box;opacity:0;box-shadow:0 0 10px rgba(255,200,60,0.85);animation:streamUp 1.8s ease-in infinite}
+.s1{animation-delay:0s}.s2{animation-delay:-0.26s}.s3{animation-delay:-0.52s}.s4{animation-delay:-0.78s}.s5{animation-delay:-1.04s}.s6{animation-delay:-1.3s}.s7{animation-delay:-1.56s}
+@keyframes streamUp{0%{opacity:0;transform:translate(0,0) scale(0.6)}15%{opacity:1}100%{opacity:0;transform:translate(118px,-390px) scale(1.2)}}
+.beam{animation:beam 2s ease-in-out infinite alternate}
+@keyframes beam{0%{opacity:0.55}100%{opacity:1}}
+.bob{animation:bob 1.6s ease-in-out infinite alternate}
+@keyframes bob{0%{transform:translateY(0)}100%{transform:translateY(-6px)}}
+.hop{animation:hop 0.6s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes hop{0%{transform:translateY(0) scale(1)}40%{transform:translateY(-16px) scale(1.06)}100%{transform:translateY(0) scale(1)}}
+.shim{background:linear-gradient(90deg,#E73FB2,#FF6B3D,#FFB627,#FFE08A,#FFB627,#FF6B3D,#E73FB2);background-size:200% 100%;animation:shim 1.2s linear infinite}
+@keyframes shim{0%{background-position:0% 0}100%{background-position:200% 0}}
+.shimgold{background:linear-gradient(90deg,#FFC93C,#FFE9A0,#FFC93C,#F5A800,#FFC93C);background-size:200% 100%;animation:shim 1.2s linear infinite}
+.grow{animation:grow 1.2s ease-out forwards;width:0}
+@keyframes grow{0%{width:8%}100%{width:92%}}
+.rays{animation:rays 14s linear infinite}
+@keyframes rays{to{transform:rotate(360deg)}}
+.rise{animation:rise 0.5s ease-out 0.2s both}
+@keyframes rise{0%{transform:translateY(14px);opacity:0}100%{transform:translateY(0);opacity:1}}
+.succart{transform-origin:50% 80%;animation:succpop 0.6s cubic-bezier(.2,1.4,.4,1) both,succfloat 2.4s ease-in-out 0.6s infinite alternate}
+@keyframes succpop{0%{transform:scale(0.45);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes succfloat{0%{transform:translateY(0)}100%{transform:translateY(-6px)}}
+.plateshine{position:absolute;top:0;left:-80px;width:60px;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.55) 50%,rgba(255,255,255,0) 100%);animation:plateshine 2.6s ease-in-out 0.7s infinite}
+@keyframes plateshine{0%{transform:translateX(0)}35%{transform:translateX(400px)}100%{transform:translateX(400px)}}
+.ribbon{opacity:0;animation:ribvis 3.2s ease-in-out 0.8s forwards}
+.ribbon path{stroke-dasharray:610;stroke-dashoffset:610;animation:ribdraw 1.5s cubic-bezier(.45,.05,.55,.95) 1.0s forwards}
+@keyframes ribvis{0%{opacity:0}8%{opacity:1}80%{opacity:1}100%{opacity:0}}
+@keyframes ribdraw{to{stroke-dashoffset:0}}
+.gstars{opacity:0;animation:gsvis 2.6s ease-in-out 1.0s forwards}
+@keyframes gsvis{0%{opacity:0}12%{opacity:1}80%{opacity:1}100%{opacity:0}}
+.gspawn{opacity:0;transform:scale(0);animation:gspawn 2.2s ease-out forwards}
+@keyframes gspawn{0%{opacity:0;transform:scale(0) rotate(-30deg)}10%{opacity:1;transform:scale(1.6) rotate(15deg)}22%{opacity:1;transform:scale(1) rotate(0deg)}75%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0.6)}}
+.gstars0{opacity:0;animation:gsvis0 3.4s ease-in-out 0.25s forwards}
+@keyframes gsvis0{0%{opacity:0}8%{opacity:1}85%{opacity:1}100%{opacity:0}}
+.gs{transform-origin:center;animation:gtw 1.1s ease-in-out infinite}
+@keyframes gtw{0%,100%{transform:scale(0.2) rotate(0deg);opacity:0.2}50%{transform:scale(1.15) rotate(45deg);opacity:1}}
+.loop .ribbon,.loop .ribbon path,.loop .gstars,.loop .gstars0,.loop .gspawn{animation-iteration-count:infinite}
+.spark2{position:absolute;left:219px;top:414px;width:7px;height:7px;border-radius:999px;background:radial-gradient(circle,#FFFBE6 0%,#FFD54A 60%,rgba(255,213,74,0) 100%);opacity:0}
+.lart{transform-origin:50% 70%;animation:succpop 0.5s cubic-bezier(.2,1.4,.4,1) both,lfloat 1.8s ease-in-out 0.5s infinite alternate}
+@keyframes lfloat{0%{transform:translateY(0)}100%{transform:translateY(-5px)}}
+.grow2{width:0;animation:grow2 1.2s ease-out forwards}
+@keyframes grow2{0%{width:6%}100%{width:94%}}
+.lsheen{background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0) 100%);background-size:40% 100%;background-repeat:no-repeat;animation:lsheen 1s linear infinite}
+@keyframes lsheen{0%{background-position:-60% 0}100%{background-position:160% 0}}
+.pillglow{animation:pillglow 0.6s ease-in-out 2.1s 3}
+@keyframes pillglow{0%,100%{transform:scale(1);box-shadow:0 0 0 rgba(255,210,80,0)}50%{transform:scale(1.1);box-shadow:0 0 18px rgba(255,210,80,0.9)}}
+@media (prefers-reduced-motion: reduce){.bc,.bk,.bs,.rs,.burstflash,.burstring{display:none}.lart,.lsheen,.rays,.shim,.shimgold,.pillglow,.beam,.bob,.hop,.succart,.plateshine{animation:none}.coin,.spark,.spark2,.stream,.ribbon,.gstars,.gstars0,.gspawn{display:none}}
+.bc{position:absolute;left:204px;top:402px;width:36px;height:30px;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:0;filter:drop-shadow(0 0 7px rgba(255,200,60,0.95))}
+.bk{position:absolute;left:216px;top:411px;width:12px;height:12px;border-radius:999px;background:radial-gradient(circle,#FFFBE6 0%,#FFC93C 55%,rgba(255,201,60,0) 100%);opacity:0}
+.burstflash{position:absolute;left:192px;top:387px;width:60px;height:60px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,235,1) 0%,rgba(255,214,90,0.85) 35%,rgba(255,180,40,0) 70%);opacity:0;animation:bflash 0.7s ease-out 0.15s forwards}
+@keyframes bflash{0%{opacity:0;transform:scale(0.2)}25%{opacity:1}100%{opacity:0;transform:scale(4)}}
+.burstring{position:absolute;left:202px;top:397px;width:40px;height:40px;border-radius:999px;border:3px solid rgba(255,225,130,0.9);box-sizing:border-box;opacity:0;animation:bring 0.8s ease-out 0.2s forwards}
+@keyframes bring{0%{opacity:0;transform:scale(0.3)}20%{opacity:1}100%{opacity:0;transform:scale(6)}}
+@keyframes bf0{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(69px,-202px) scale(1.74) rotate(10deg)}22%{transform:translate(64px,-187px) scale(1.52) rotate(6deg)}30.0%{opacity:1;transform:translate(64px,-193px) scale(1.52) rotate(-4deg)}52.0%{opacity:1;transform:translate(122px,-252px) scale(1.14) rotate(5deg)}70.0%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs0{0%{opacity:0;transform:translate(64px,-193px) scale(1.52)}30.0%{opacity:0;transform:translate(64px,-193px) scale(1.52)}33.0%{opacity:1}52.0%{opacity:1;transform:translate(122px,-252px) scale(1.14)}70.0%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b0{animation:bf0 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk0{animation:bfs0 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs0{animation:bfs0 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf1{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(125px,-190px) scale(0.47) rotate(-10deg)}22%{transform:translate(115px,-176px) scale(0.40) rotate(-6deg)}31.4%{opacity:1;transform:translate(115px,-182px) scale(0.40) rotate(4deg)}53.5%{opacity:1;transform:translate(122px,-252px) scale(0.35) rotate(-5deg)}71.6%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs1{0%{opacity:0;transform:translate(115px,-182px) scale(0.40)}31.4%{opacity:0;transform:translate(115px,-182px) scale(0.40)}34.4%{opacity:1}53.5%{opacity:1;transform:translate(122px,-252px) scale(0.35)}71.6%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b1{animation:bf1 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk1{animation:bfs1 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs1{animation:bfs1 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf2{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(102px,-161px) scale(1.71) rotate(18deg)}22%{transform:translate(94px,-149px) scale(1.48) rotate(11deg)}32.8%{opacity:1;transform:translate(94px,-155px) scale(1.48) rotate(-7deg)}55.0%{opacity:1;transform:translate(122px,-252px) scale(1.11) rotate(9deg)}73.2%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs2{0%{opacity:0;transform:translate(94px,-155px) scale(1.48)}32.8%{opacity:0;transform:translate(94px,-155px) scale(1.48)}35.8%{opacity:1}55.0%{opacity:1;transform:translate(122px,-252px) scale(1.11)}73.2%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b2{animation:bf2 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk2{animation:bfs2 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs2{animation:bfs2 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf3{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(28px,-148px) scale(0.76) rotate(-18deg)}22%{transform:translate(26px,-137px) scale(0.66) rotate(-11deg)}34.2%{opacity:1;transform:translate(26px,-143px) scale(0.66) rotate(7deg)}56.5%{opacity:1;transform:translate(122px,-252px) scale(0.49) rotate(-9deg)}74.8%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs3{0%{opacity:0;transform:translate(26px,-143px) scale(0.66)}34.2%{opacity:0;transform:translate(26px,-143px) scale(0.66)}37.2%{opacity:1}56.5%{opacity:1;transform:translate(122px,-252px) scale(0.49)}74.8%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b3{animation:bf3 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk3{animation:bfs3 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs3{animation:bfs3 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf4{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(79px,-128px) scale(1.76) rotate(-18deg)}22%{transform:translate(73px,-118px) scale(1.53) rotate(-11deg)}35.6%{opacity:1;transform:translate(73px,-124px) scale(1.53) rotate(7deg)}58.0%{opacity:1;transform:translate(122px,-252px) scale(1.15) rotate(-9deg)}76.4%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs4{0%{opacity:0;transform:translate(73px,-124px) scale(1.53)}35.6%{opacity:0;transform:translate(73px,-124px) scale(1.53)}38.6%{opacity:1}58.0%{opacity:1;transform:translate(122px,-252px) scale(1.15)}76.4%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b4{animation:bf4 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk4{animation:bfs4 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs4{animation:bfs4 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf5{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(61px,-89px) scale(0.65) rotate(-18deg)}22%{transform:translate(56px,-82px) scale(0.57) rotate(-11deg)}37.0%{opacity:1;transform:translate(56px,-88px) scale(0.57) rotate(7deg)}59.5%{opacity:1;transform:translate(122px,-252px) scale(0.43) rotate(-9deg)}78.0%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs5{0%{opacity:0;transform:translate(56px,-88px) scale(0.57)}37.0%{opacity:0;transform:translate(56px,-88px) scale(0.57)}40.0%{opacity:1}59.5%{opacity:1;transform:translate(122px,-252px) scale(0.43)}78.0%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b5{animation:bf5 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk5{animation:bfs5 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs5{animation:bfs5 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf6{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(107px,-54px) scale(2.22) rotate(10deg)}22%{transform:translate(99px,-50px) scale(1.93) rotate(6deg)}38.4%{opacity:1;transform:translate(99px,-56px) scale(1.93) rotate(-4deg)}61.1%{opacity:1;transform:translate(122px,-252px) scale(1.45) rotate(5deg)}79.6%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs6{0%{opacity:0;transform:translate(99px,-56px) scale(1.93)}38.4%{opacity:0;transform:translate(99px,-56px) scale(1.93)}41.4%{opacity:1}61.1%{opacity:1;transform:translate(122px,-252px) scale(1.45)}79.6%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b6{animation:bf6 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk6{animation:bfs6 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs6{animation:bfs6 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf7{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(62px,-39px) scale(0.85) rotate(-18deg)}22%{transform:translate(58px,-36px) scale(0.74) rotate(-11deg)}39.8%{opacity:1;transform:translate(58px,-42px) scale(0.74) rotate(7deg)}62.6%{opacity:1;transform:translate(122px,-252px) scale(0.56) rotate(-9deg)}81.2%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs7{0%{opacity:0;transform:translate(58px,-42px) scale(0.74)}39.8%{opacity:0;transform:translate(58px,-42px) scale(0.74)}42.8%{opacity:1}62.6%{opacity:1;transform:translate(122px,-252px) scale(0.56)}81.2%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b7{animation:bf7 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk7{animation:bfs7 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs7{animation:bfs7 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf11{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(-167px,-39px) scale(1.16) rotate(-10deg)}22%{transform:translate(-155px,-36px) scale(1.01) rotate(-6deg)}41.2%{opacity:1;transform:translate(-155px,-42px) scale(1.01) rotate(4deg)}64.1%{opacity:1;transform:translate(122px,-252px) scale(0.76) rotate(-5deg)}82.8%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs11{0%{opacity:0;transform:translate(-155px,-42px) scale(1.01)}41.2%{opacity:0;transform:translate(-155px,-42px) scale(1.01)}44.2%{opacity:1}64.1%{opacity:1;transform:translate(122px,-252px) scale(0.76)}82.8%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b11{animation:bf11 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk11{animation:bfs11 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs11{animation:bfs11 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf8{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(77px,-10px) scale(1.07) rotate(-18deg)}22%{transform:translate(71px,-9px) scale(0.93) rotate(-11deg)}42.6%{opacity:1;transform:translate(71px,-15px) scale(0.93) rotate(7deg)}65.6%{opacity:1;transform:translate(122px,-252px) scale(0.70) rotate(-9deg)}84.4%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs8{0%{opacity:0;transform:translate(71px,-15px) scale(0.93)}42.6%{opacity:0;transform:translate(71px,-15px) scale(0.93)}45.6%{opacity:1}65.6%{opacity:1;transform:translate(122px,-252px) scale(0.70)}84.4%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b8{animation:bf8 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk8{animation:bfs8 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs8{animation:bfs8 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf12{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(-131px,-0px) scale(2.14) rotate(-18deg)}22%{transform:translate(-121px,-0px) scale(1.86) rotate(-11deg)}44.0%{opacity:1;transform:translate(-121px,-6px) scale(1.86) rotate(7deg)}67.1%{opacity:1;transform:translate(122px,-252px) scale(1.40) rotate(-9deg)}86.0%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs12{0%{opacity:0;transform:translate(-121px,-6px) scale(1.86)}44.0%{opacity:0;transform:translate(-121px,-6px) scale(1.86)}47.0%{opacity:1}67.1%{opacity:1;transform:translate(122px,-252px) scale(1.40)}86.0%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b12{animation:bf12 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk12{animation:bfs12 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs12{animation:bfs12 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf13{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(-193px,2px) scale(1.32) rotate(18deg)}22%{transform:translate(-179px,1px) scale(1.15) rotate(11deg)}45.4%{opacity:1;transform:translate(-179px,-5px) scale(1.15) rotate(-7deg)}68.6%{opacity:1;transform:translate(122px,-252px) scale(0.86) rotate(9deg)}87.6%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs13{0%{opacity:0;transform:translate(-179px,-5px) scale(1.15)}45.4%{opacity:0;transform:translate(-179px,-5px) scale(1.15)}48.4%{opacity:1}68.6%{opacity:1;transform:translate(122px,-252px) scale(0.86)}87.6%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b13{animation:bf13 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk13{animation:bfs13 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs13{animation:bfs13 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf9{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(120px,3px) scale(1.05) rotate(18deg)}22%{transform:translate(111px,3px) scale(0.91) rotate(11deg)}46.8%{opacity:1;transform:translate(111px,-3px) scale(0.91) rotate(-7deg)}70.1%{opacity:1;transform:translate(122px,-252px) scale(0.68) rotate(9deg)}89.2%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs9{0%{opacity:0;transform:translate(111px,-3px) scale(0.91)}46.8%{opacity:0;transform:translate(111px,-3px) scale(0.91)}49.8%{opacity:1}70.1%{opacity:1;transform:translate(122px,-252px) scale(0.68)}89.2%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b9{animation:bf9 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk9{animation:bfs9 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs9{animation:bfs9 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf14{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(-170px,33px) scale(1.11) rotate(-18deg)}22%{transform:translate(-158px,30px) scale(0.97) rotate(-11deg)}48.2%{opacity:1;transform:translate(-158px,24px) scale(0.97) rotate(7deg)}71.6%{opacity:1;transform:translate(122px,-252px) scale(0.73) rotate(-9deg)}90.8%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs14{0%{opacity:0;transform:translate(-158px,24px) scale(0.97)}48.2%{opacity:0;transform:translate(-158px,24px) scale(0.97)}51.2%{opacity:1}71.6%{opacity:1;transform:translate(122px,-252px) scale(0.73)}90.8%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b14{animation:bf14 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk14{animation:bfs14 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs14{animation:bfs14 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+@keyframes bf10{0%{opacity:0;transform:translate(0,0) scale(0.15) rotate(0deg)}5%{opacity:1}16%{transform:translate(116px,39px) scale(1.45) rotate(-10deg)}22%{transform:translate(108px,36px) scale(1.26) rotate(-6deg)}49.6%{opacity:1;transform:translate(108px,30px) scale(1.26) rotate(4deg)}73.1%{opacity:1;transform:translate(122px,-252px) scale(0.95) rotate(-5deg)}92.4%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42) rotate(0deg)}}
+@keyframes bfs10{0%{opacity:0;transform:translate(108px,30px) scale(1.26)}49.6%{opacity:0;transform:translate(108px,30px) scale(1.26)}52.6%{opacity:1}73.1%{opacity:1;transform:translate(122px,-252px) scale(0.95)}92.4%{opacity:0.3;transform:translate(-92px,-389px) scale(0.42)}100%{opacity:0;transform:translate(-92px,-389px) scale(0.42)}}
+.b10{animation:bf10 2.8s cubic-bezier(.3,.6,.4,1) 0.15s forwards}.bk10{animation:bfs10 2.8s cubic-bezier(.3,.6,.4,1) 0.21s forwards}
+.bs10{animation:bfs10 2.8s cubic-bezier(.3,.6,.4,1) 0.30s forwards}
+.bs{position:absolute;left:215px;top:410px;width:14px;height:14px;opacity:0;filter:drop-shadow(0 0 4px rgba(255,220,120,0.95))}
+.bsp{transform-box:fill-box;transform-origin:center;animation:bsp 0.8s ease-in-out infinite}@keyframes bsp{0%,100%{transform:scale(0.5) rotate(0deg)}50%{transform:scale(1.2) rotate(45deg)}}
+.rs{position:absolute;opacity:0;filter:drop-shadow(0 0 5px rgba(255,220,120,0.95))}
+@keyframes rs0{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(-82px,33px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(-90px,36px) scale(0.4) rotate(140deg)}}.rs0{width:16px;height:16px;left:214px;top:409px;animation:rs0 1.1s ease-out 0.15s forwards}
+@keyframes rs1{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(-117px,-39px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(-129px,-43px) scale(0.4) rotate(140deg)}}.rs1{width:11px;height:11px;left:216px;top:412px;animation:rs1 1.1s ease-out 0.18s forwards}
+@keyframes rs2{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(-146px,-59px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(-161px,-65px) scale(0.4) rotate(140deg)}}.rs2{width:20px;height:20px;left:212px;top:407px;animation:rs2 1.1s ease-out 0.21s forwards}
+@keyframes rs3{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(-33px,-75px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(-37px,-83px) scale(0.4) rotate(140deg)}}.rs3{width:13px;height:13px;left:216px;top:410px;animation:rs3 1.1s ease-out 0.24s forwards}
+@keyframes rs4{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(-38px,-107px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(-42px,-118px) scale(0.4) rotate(140deg)}}.rs4{width:18px;height:18px;left:213px;top:408px;animation:rs4 1.1s ease-out 0.27s forwards}
+@keyframes rs5{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(71px,-129px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(78px,-142px) scale(0.4) rotate(140deg)}}.rs5{width:10px;height:10px;left:217px;top:412px;animation:rs5 1.1s ease-out 0.30s forwards}
+@keyframes rs6{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(45px,-70px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(50px,-77px) scale(0.4) rotate(140deg)}}.rs6{width:22px;height:22px;left:211px;top:406px;animation:rs6 1.1s ease-out 0.33s forwards}
+@keyframes rs7{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(120px,-30px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(132px,-33px) scale(0.4) rotate(140deg)}}.rs7{width:12px;height:12px;left:216px;top:411px;animation:rs7 1.1s ease-out 0.36s forwards}
+@keyframes rs8{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(157px,-29px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(172px,-32px) scale(0.4) rotate(140deg)}}.rs8{width:15px;height:15px;left:214px;top:410px;animation:rs8 1.1s ease-out 0.39s forwards}
+@keyframes rs9{0%{opacity:0;transform:translate(0,0) scale(0.2) rotate(0deg)}15%{opacity:1}70%{opacity:1;transform:translate(76px,44px) scale(1.1) rotate(90deg)}100%{opacity:0;transform:translate(83px,48px) scale(0.4) rotate(140deg)}}.rs9{width:14px;height:14px;left:215px;top:410px;animation:rs9 1.1s ease-out 0.42s forwards}
+.loop .bc,.loop .bk,.loop .bs,.loop .rs,.loop .burstflash,.loop .burstring{animation-iteration-count:infinite}
+/*ENDANIMCSS*/
+.pop{animation:pop 0.35s ease-out}
+@keyframes pop{0%{transform:scale(0.85);opacity:0}100%{transform:scale(1);opacity:1}}
+.bump{animation:bump 0.5s ease-in-out 3}
+@keyframes bump{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.sheet{animation:sheet 0.3s ease-out}
+@keyframes sheet{0%{transform:translateY(100%)}100%{transform:translateY(0)}}
+.drawer{animation:drawer 0.25s ease-out}
+@keyframes drawer{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
+.bn-shine{position:absolute;top:0;left:-70px;width:56px;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.26) 50%,rgba(255,255,255,0) 100%);animation:bnshine 8s ease-in-out 1.5s infinite}
+@keyframes bnshine{0%{transform:translateX(0)}16%{transform:translateX(470px)}100%{transform:translateX(470px)}}
+.tw{opacity:0;animation:tw 4s ease-in-out infinite}.tw2{animation-delay:2s}
+@keyframes tw{0%,100%{opacity:0;transform:scale(0.6)}50%{opacity:0.85;transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){.bn-shine{display:none}.tw{animation:none;opacity:0.6}}
+</style>
+</helmet>
+<div style="width: 1400px; height: 1120px; box-sizing: border-box; padding: 36px 40px; background: #EFEBF7; display: flex; gap: 48px; font-family: 'Nunito Sans', 'Segoe UI', system-ui, sans-serif; color: #1F1535">
+
+<!-- ================= H5 ================= -->
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 2px; font-family: 'Noto Sans SC', sans-serif">
+<div style="font-size: 22px; font-weight: 700">H5 网页端</div>
+<div style="font-size: 13px; color: #574F6B">未登录：现网访客首页（Login / Register &amp; Spin Now）；访客每次、登录用户当日首登弹底部引导；已装 APP 时点下载直接唤起 APP 领取弹窗</div>
+</div>
+<div style="position: relative; width: 384px; height: 946px; overflow: hidden; border-radius: 28px; border: 6px solid #1F1535; background: #FFFFFF; box-shadow: 0 16px 40px rgba(31,21,53,0.18)">
+<sc-if value="{{ h5Logged }}" hint-placeholder-val="{{ false }}"><img src="../assets/3589f16e427ed0beefe0116dea578d67.png" alt="789Bingo H5 首页" style="position: absolute; left: 0; top: 0; width: 384px; height: 946px"></sc-if>
+<sc-if value="{{ h5Guest }}" hint-placeholder-val="{{ true }}"><img src="../assets/b10f49e9ba6c797cc390560a4aa551db.png" alt="789Bingo H5 未登录首页" style="position: absolute; left: -6px; top: 0; width: 396px; height: 946px"></sc-if>
+<sc-if value="{{ h5Logged }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 112px; top: 9px; width: 138px; height: 38px; box-sizing: border-box; border-radius: 999px; background: #F3F3F6; display: flex; align-items: center; gap: 8px; padding: 0 6px 0 6px">
+<div style="width: 24px; height: 24px; border-radius: 999px; background: #F5B400; border: 2px solid #D18A00; box-sizing: border-box"></div>
+<div style="flex-grow: 1; font-weight: 800; font-size: 16px; color: #1F1535">{{ balText }}</div>
+<div style="width: 24px; height: 24px; border-radius: 6px; background: #6D4BE0; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800">+</div>
+</div>
+</sc-if>
+<sc-if value="{{ h5Guest }}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Login" onClick="{{ h5Login }}" style="position: absolute; left: 130px; top: 8px; width: 60px; height: 34px; border: none; border-radius: 8px; background: transparent; cursor: pointer"></button><button type="button" aria-label="Register &amp; Spin Now" onClick="{{ h5Login }}" style="position: absolute; left: 194px; top: 8px; width: 154px; height: 34px; border: none; border-radius: 10px; background: transparent; cursor: pointer"></button></sc-if>
+<button type="button" aria-label="Open menu" onClick="{{ openH5Drawer }}" style="position: absolute; left: 0; top: 4px; width: 50px; height: 48px; border: none; background: transparent; cursor: pointer"></button>
+<sc-if value="{{ h5ShowRail }}" hint-placeholder-val="{{ true }}">
+<div style="position: absolute; left: 300px; top: 400px; width: 82px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; background: #FFF3DC; border-left: 3px solid #F2B33D; border-right: 3px solid #F2B33D; padding-top: 4px">
+<button type="button" aria-label="APP 下载奖励活动" onClick="{{ openH5Popup }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; border: none; background: transparent; padding: 0; cursor: pointer; font-family: inherit">
+<img src="../assets/bedf36668f42cff5a0641583b0049c00.png" alt="₱188 Download" style="width: 68px; height: 68px; display: block">
+</button>
+<div style="width: 82px; height: 24px; margin-top: 6px; background: #F26A1B; color: #FFFFFF; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">Hide</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ h5Drawer }}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Close menu" onClick="{{ closeH5Drawer }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; background: rgba(15,8,32,0.55); cursor: pointer"></button>
+<div class="drawer" style="position: absolute; left: 0; top: 0; width: 325px; height: 946px; background: #F4F4F4">
+<img src="../assets/1b118df47679a003510a50b956f6ce9a.png" alt="侧边栏" style="position: absolute; left: 0; top: 0; width: 325px; height: 945px">
+<button type="button" aria-label="Close menu" onClick="{{ closeH5Drawer }}" style="position: absolute; left: 276px; top: 0; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
+<sc-if value="{{ h5ShowDlTag }}" hint-placeholder-val="{{ true }}"><div style="position: absolute; right: 43px; top: 569px; height: 28px; box-sizing: border-box; padding: 0 11px 0 9px; border-radius: 999px; background: #81D8D0; color: #064E4B; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 5px; white-space: nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10.5l5 5 5-5"></path><path d="M5 20h14"></path></svg>Get ₱188</div></sc-if>
+<button type="button" aria-label="App Download" onClick="{{ openH5DlPage }}" style="position: absolute; left: 8px; top: 557px; width: 305px; height: 51px; border: none; border-radius: 6px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.55); cursor: pointer"></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ h5Popup }}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="Close" onClick="{{ closeH5Popup }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; background: rgba(15,8,32,0.6); cursor: pointer"></button>
+<div class="sheet" style="position: absolute; left: 0; bottom: 0; width: 384px; height: 265px; border-radius: 12px 12px 0 0; overflow: hidden">
+<img src="../assets/869175184c616ba54a0d1a615400f941.png" alt="Download the APP, Get ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 265px">
+<button type="button" aria-label="Close" onClick="{{ closeH5Popup }}" style="position: absolute; left: 340px; top: 0; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
+<button type="button" aria-label="Android APP" onClick="{{ getAndroid }}" style="position: absolute; left: 25px; top: 173px; width: 162px; height: 42px; border: none; border-radius: 21px; background: transparent; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.85); cursor: pointer"></button>
+<button type="button" aria-label="iPhone APP" onClick="{{ getIos }}" style="position: absolute; left: 198px; top: 173px; width: 162px; height: 42px; border: none; border-radius: 21px; background: transparent; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.85); cursor: pointer"></button>
+<div style="position: absolute; left: 8px; top: 219px; width: 214px; min-height: 22px; box-sizing: border-box; padding: 2px 8px; border-radius: 8px; background: rgba(58,10,38,0.45); display: flex; align-items: center; gap: 5px; color: #FFFFFF; font-size: 10px; font-weight: 700; line-height: 1.25"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Only deposits and bets made in the APP are counted.</div>
+<sc-if value="{{ h5Logged }}" hint-placeholder-val="{{ false }}"><div style="position: absolute; left: 0; top: 219px; width: 384px; box-sizing: border-box; padding-right: 6px; display: flex; justify-content: flex-end"><label style="height: 22px; box-sizing: border-box; padding: 0 8px; border-radius: 999px; background: rgba(58,10,38,0.45); display: flex; align-items: center; gap: 5px; color: #FFFFFF; font-size: 11px; font-weight: 700; white-space: nowrap; cursor: pointer"><input type="checkbox" checked="{{ dontShow }}" onChange="{{ toggleDontShow }}" style="width: 12px; height: 12px; margin: 0; accent-color: #F5B400; cursor: pointer">Don&#39;t show again today</label></div></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ h5DlPage }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: #F8C4B2">
+<img src="../assets/3f7fe52f5035094d534919eaa482ffb4.png" alt="APP 下载页：Download the APP Get ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 927px">
+<button type="button" aria-label="Back" onClick="{{ closeH5DlPage }}" style="position: absolute; left: 8px; top: 8px; width: 44px; height: 44px; border: none; border-radius: 999px; background: rgba(255,255,255,0.75); color: #1F1535; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<button type="button" aria-label="Download Now" onClick="{{ getAuto }}" style="position: absolute; left: 31px; top: 709px; width: 323px; height: 63px; border: none; border-radius: 32px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.7); cursor: pointer"></button>
+<button type="button" aria-label="Get it on Google Play" onClick="{{ getAndroid }}" style="position: absolute; left: 50px; top: 785px; width: 134px; height: 41px; border: none; border-radius: 6px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.7); cursor: pointer"></button>
+<button type="button" aria-label="Download on the App Store" onClick="{{ getIos }}" style="position: absolute; left: 201px; top: 785px; width: 134px; height: 41px; border: none; border-radius: 6px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.7); cursor: pointer"></button>
+<div style="position: absolute; left: 0; top: 828px; width: 384px; display: flex; justify-content: center"><div style="display: inline-flex; align-items: center; gap: 5px; padding: 2px 10px; border-radius: 999px; background: rgba(91,33,182,0.82); color: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 16px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Only deposits and bets made in the APP are counted.</div></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ h5Toast }}" hint-placeholder-val="{{ false }}">
+<div class="pop" style="position: absolute; left: 62px; top: 420px; width: 260px; padding: 14px 16px; border-radius: 12px; background: rgba(31,21,53,0.92); color: #FFFFFF; font-family: 'Noto Sans SC', sans-serif; font-size: 14px; text-align: center">{{ h5ToastText }}</div>
+</sc-if>
+</div>
+</div>
+
+<!-- ================= APP ================= -->
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 2px; font-family: 'Noto Sans SC', sans-serif">
+<div style="font-size: 22px; font-weight: 700">789Bingo APP（下载后）</div>
+<div style="font-size: 13px; color: #574F6B">未登录：宣传横幅 + 活动图标 → 登录；登录后：横幅（进度）/ 活动图标 → 领取弹窗</div>
+</div>
+<div style="position: relative; width: 384px; height: 946px; overflow: hidden; border-radius: 28px; border: 6px solid #1F1535; background: #FFFFFF; box-shadow: 0 16px 40px rgba(31,21,53,0.18)">
+
+<sc-if value="{{ notInstalled }}" hint-placeholder-val="{{ true }}">
+<div style="position: absolute; inset: 0; background: #E9E5F1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 40px; text-align: center; font-family: 'Noto Sans SC', sans-serif">
+<div style="width: 76px; height: 76px; border-radius: 20px; border: 2px dashed #8E84A8; display: flex; align-items: center; justify-content: center; color: #8E84A8; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px">789</div>
+<div style="font-size: 18px; font-weight: 700; color: #3E3851">APP 未安装</div>
+<div style="font-size: 13px; color: #574F6B; line-height: 1.6">请在左侧 H5 端点击菜单<br>Others → App Download 下载 APP</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ appGuest }}" hint-placeholder-val="{{ false }}">
+<img src="../assets/b10f49e9ba6c797cc390560a4aa551db.png" alt="789Bingo APP 未登录版首页" style="position: absolute; left: -6px; top: 0; width: 396px; height: 946px">
+<button type="button" aria-label="Login" onClick="{{ goAppLogin }}" style="position: absolute; left: 130px; top: 8px; width: 60px; height: 34px; border: none; border-radius: 8px; background: transparent; cursor: pointer"></button><button type="button" aria-label="Register &amp; Spin Now" onClick="{{ goAppLogin }}" style="position: absolute; left: 194px; top: 8px; width: 154px; height: 34px; border: none; border-radius: 10px; background: transparent; cursor: pointer"></button>
+<sc-if value="{{ appGuest }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 300px; top: 400px; width: 82px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; background: #FFF3DC; border-left: 3px solid #F2B33D; border-right: 3px solid #F2B33D; padding-top: 4px">
+<button type="button" aria-label="APP 下载奖励活动" onClick="{{ goAppLogin }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; border: none; background: transparent; padding: 0; cursor: pointer; font-family: inherit">
+<img src="../assets/bedf36668f42cff5a0641583b0049c00.png" alt="₱188 Download" style="width: 68px; height: 68px; display: block">
+</button>
+<div style="width: 82px; height: 24px; margin-top: 6px; background: #F26A1B; color: #FFFFFF; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">Hide</div>
+</div>
+</sc-if>
+<sc-if value="{{ showGuestBanner }}" hint-placeholder-val="{{ true }}">
+<div class="sheet" style="position: absolute; left: 0; top: 771px; width: 384px; height: 128px; pointer-events: none">
+<img src="../assets/2d83d126b2b926cdb8f45b4f26008c9b.png" alt="APP Download Reward ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 128px">
+<div style="position: absolute; left: 3px; top: 60px; width: 338px; height: 52px; border-radius: 8px; overflow: hidden"><div class="bn-shine"></div></div>
+<svg class="tw " width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 316px; top: 66px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
+<svg class="tw tw2" width="9" height="9" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 352px; top: 84px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
+<button type="button" aria-label="Open APP Download Reward" onClick="{{ goAppLogin }}" style="position: absolute; left: 0; top: 58px; width: 340px; height: 56px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
+<button type="button" aria-label="Close banner" onClick="{{ closeBanner }}" style="position: absolute; left: 344px; top: 40px; width: 40px; height: 44px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
+</div>
+</sc-if>
+<img src="../assets/a023e5e3fede18cf0664b280571c57ff.png" alt="底部导航栏" style="position: absolute; left: -6px; top: 856px; width: 396px; height: 90px; pointer-events: none">
+</sc-if>
+
+<sc-if value="{{ appLoginPage }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; gap: 18px; padding: 90px 28px 28px; box-sizing: border-box">
+<div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 40px; color: #6D28D9; text-align: center">789 BINGO</div>
+<div style="font-weight: 800; font-size: 22px; text-align: center">Log In</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: 14px">Mobile Number
+<input placeholder="09XXXXXXXXX" style="height: 48px; box-sizing: border-box; border: 1px solid #CFC8DD; border-radius: 10px; padding: 0 14px; font-family: inherit; font-size: 15px">
+</label>
+<button type="button" onClick="{{ doLogin }}" style="height: 52px; border: none; border-radius: 14px; background: #6D28D9; color: #FFFFFF; font-family: inherit; font-weight: 800; font-size: 17px; cursor: pointer">Log In</button>
+<div style="font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: #574F6B; text-align: center; border: 1px dashed #B9A8E6; border-radius: 8px; padding: 8px">登录页为简化示意，沿用现有登录逻辑；登录成功即记录 APP Login</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}">
+<img src="../assets/3589f16e427ed0beefe0116dea578d67.png" alt="789Bingo APP 首页" style="position: absolute; left: 0; top: 0; width: 384px; height: 946px">
+<div class="{{ pillClass }}" style="position: absolute; left: 112px; top: 9px; width: 138px; height: 38px; box-sizing: border-box; border-radius: 999px; background: {{ pillBg }}; display: flex; align-items: center; gap: 8px; padding: 0 6px">
+<div style="width: 24px; height: 24px; border-radius: 999px; background: #F5B400; border: 2px solid #D18A00; box-sizing: border-box"></div>
+<div style="flex-grow: 1; font-weight: 800; font-size: 16px; color: #1F1535">{{ appBalText }}</div>
+<div style="width: 24px; height: 24px; border-radius: 6px; background: #6D4BE0; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800">+</div>
+</div>
+<button type="button" aria-label="Open menu" onClick="{{ openAppDrawer }}" style="position: absolute; left: 0; top: 4px; width: 50px; height: 48px; border: none; background: transparent; cursor: pointer"></button>
+<sc-if value="{{ appShowRail }}" hint-placeholder-val="{{ true }}">
+<div style="position: absolute; left: 300px; top: 400px; width: 82px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; background: #FFF3DC; border-left: 3px solid #F2B33D; border-right: 3px solid #F2B33D; padding-top: 4px">
+<button type="button" aria-label="APP 下载奖励活动" onClick="{{ openClaimFromRail }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; border: none; background: transparent; padding: 0; cursor: pointer; font-family: inherit">
+<img src="../assets/bedf36668f42cff5a0641583b0049c00.png" alt="₱188 Download" style="width: 68px; height: 68px; display: block">
+</button>
+<div style="width: 82px; height: 24px; margin-top: 6px; background: #F26A1B; color: #FFFFFF; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">Hide</div>
+</div>
+</sc-if>
+<sc-if value="{{ showBanner }}" hint-placeholder-val="{{ true }}">
+<div class="sheet" style="position: absolute; left: 0; top: 771px; width: 384px; height: 128px; pointer-events: none">
+<img src="../assets/2d83d126b2b926cdb8f45b4f26008c9b.png" alt="APP Download Reward ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 128px">
+<div style="position: absolute; left: 3px; top: 60px; width: 338px; height: 52px; border-radius: 8px; overflow: hidden"><div class="bn-shine"></div></div>
+<svg class="tw " width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 316px; top: 66px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
+<svg class="tw tw2" width="9" height="9" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 352px; top: 84px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
+<div style="position: absolute; left: 123px; top: 89px; font-size: 13px; font-weight: 800; color: #FFFFFF; white-space: nowrap; text-shadow: 0 0 2px #3B0764, 0 1px 2px #3B0764">Deposit {{ depShort }} · {{ bannerBet }}</div>
+<button type="button" aria-label="Open APP Download Reward" onClick="{{ openClaimFromBanner }}" style="position: absolute; left: 0; top: 58px; width: 340px; height: 56px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
+<button type="button" aria-label="Close banner" onClick="{{ closeBanner }}" style="position: absolute; left: 344px; top: 40px; width: 40px; height: 44px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
+</div>
+</sc-if>
+<img src="../assets/4e55897f4808aadda21e8c14ed235b3e.png" alt="底部导航栏" style="position: absolute; left: 0; top: 866px; width: 384px; height: 80px; pointer-events: none">
+</sc-if>
+
+<sc-if value="{{ appDrawer }}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Close menu" onClick="{{ closeAppDrawer }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; background: rgba(15,8,32,0.55); cursor: pointer"></button>
+<div class="drawer" style="position: absolute; left: 0; top: 0; width: 325px; height: 946px; background: #F4F4F4">
+<img src="../assets/705696b8b40099c905e95ef2004b1e53.png" alt="侧边栏" style="position: absolute; left: 0; top: 0; width: 325px; height: 945px">
+<button type="button" aria-label="Close menu" onClick="{{ closeAppDrawer }}" style="position: absolute; left: 276px; top: 0; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ showPopup }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.72)"></div>
+<div class="pop" style="position: absolute; left: 22px; top: 150px; width: 340px">
+<div style="position: relative; margin: 158px 0 0 5px; width: 330px; box-sizing: border-box; background: #FDF3E2; border: 3px solid #F1B23F; border-radius: 22px; padding: 18px 10px 12px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.45)">
+<div style="display: flex; align-items: center; justify-content: space-between; height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 14px; background: #FFF9F0; border: 1px solid #F3DCC0"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">APP Login</span><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: 14px; background: #FFF9F0; border: 1px solid #F3DCC0">
+<div style="display: flex; align-items: center; justify-content: space-between"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">APP Deposit</span><span style="font-weight: 800; font-size: 13px; color: #2B0F5C">{{ depText }} <span style="color: #6A5A86">/ ₱1,000</span></span></div>
+<div style="display: flex; align-items: center; gap: 8px; min-height: 30px"><div style="flex-grow: 1; height: 10px; border-radius: 999px; background: #E6D9EE; overflow: hidden"><div style="height: 10px; width: {{ depPct }}%; border-radius: 999px; background: {{ depBar }}"></div></div><sc-if value="{{ depTodo }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ goDeposit }}" style="flex-shrink: 0; height: 30px; padding: 0 12px; border: none; border-radius: 999px; background: #9D1FC8; color: #FFFFFF; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap">Deposit</button></sc-if><sc-if value="{{ depDone }}" hint-placeholder-val="{{ false }}"><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></sc-if></div>
+</div>
+<sc-for list="{{ betRows }}" as="b" hint-placeholder-count="1"><div style="display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: 14px; background: #FFF9F0; border: 1px solid #F3DCC0">
+<div style="display: flex; align-items: center; justify-content: space-between"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">{{ b.label }}</span><span style="font-weight: 800; font-size: 13px; color: #2B0F5C">{{ b.text }} <span style="color: #6A5A86">/ {{ b.target }}</span></span></div>
+<div style="display: flex; align-items: center; gap: 8px; min-height: 30px"><div style="flex-grow: 1; height: 10px; border-radius: 999px; background: #E6D9EE; overflow: hidden"><div style="height: 10px; width: {{ b.pct }}%; border-radius: 999px; background: {{ b.bar }}"></div></div><sc-if value="{{ b.todo }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ b.go }}" style="flex-shrink: 0; height: 30px; padding: 0 12px; border: none; border-radius: 999px; background: #9D1FC8; color: #FFFFFF; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap">{{ b.btn }}</button></sc-if><sc-if value="{{ b.done }}" hint-placeholder-val="{{ false }}"><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></sc-if></div>
+</div></sc-for>
+<sc-if value="{{ btnProgress }}" hint-placeholder-val="{{ true }}"><div style="display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 10px; background: #F3EDFF; color: #5B21B6; font-size: 12px; font-weight: 700; line-height: 1.35"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Only deposits and bets made in the APP are counted.</div></sc-if>
+<div style="display: flex; align-items: center; justify-content: space-between; height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; background: linear-gradient(180deg, #FFF3CC, #FFD978); border: 2px solid #F2B33D">
+<span style="font-weight: 800; font-size: 17px; color: #2B0F5C">Reward</span>
+<span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: #C8160E; text-shadow: 0 1px 0 #FFE7A0">₱188</span>
+</div>
+<sc-if value="{{ btnProgress }}" hint-placeholder-val="{{ true }}"><button type="button" disabled="disabled" style="width: 100%; height: 48px; border-radius: 14px; font-family: inherit; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid #B9ADCB; background: #D3C9DE; color: #5A4A74">In Progress</button></sc-if>
+<sc-if value="{{ btnClaim }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ doClaim }}" style="width: 100%; height: 48px; border-radius: 14px; font-family: inherit; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid #F6C04A; background: linear-gradient(180deg, #FF8A1F, #E0441B); color: #FFFFFF; cursor: pointer">Claim ₱188</button></sc-if>
+<sc-if value="{{ btnClaimed }}" hint-placeholder-val="{{ false }}"><button type="button" disabled="disabled" style="width: 100%; height: 48px; border-radius: 14px; font-family: inherit; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid #A9DDB8; background: #DDF5E3; color: #17703A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Claimed</button></sc-if>
+</div>
+<img src="../assets/872a0a1f08350849dd39d9010c584110.png" alt="Download APP Get ₱188 · APP REWARD" style="position: absolute; left: -5px; top: 0; width: 349px; height: 166px; pointer-events: none">
+<button type="button" aria-label="Close" onClick="{{ closeClaimPopup }}" style="position: absolute; left: 297px; top: 3px; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ appToast }}" hint-placeholder-val="{{ false }}">
+<div class="pop" style="position: absolute; left: 52px; top: 420px; width: 280px; padding: 14px 16px; border-radius: 12px; background: rgba(31,21,53,0.92); color: #FFFFFF; font-family: 'Noto Sans SC', sans-serif; font-size: 14px; text-align: center">{{ appToastText }}</div>
+</sc-if>
+<sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.82)"></div>
+<div style="position: absolute; left: 32px; top: 180px; width: 320px; height: 320px; border-radius: 999px; background: radial-gradient(circle, rgba(255,196,80,0.38) 0%, rgba(255,196,80,0) 70%)"></div>
+<div class="lart" style="position: absolute; left: 22px; top: 220px; width: 340px; height: 280px"><img src="../assets/16f9b450c4c6c36488ee49360259614f.png" alt="Claiming..." style="width: 340px; height: 280px; display: block"></div>
+<svg class="tw " width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 96px; top: 259px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw tw2" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 290px; top: 244px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw " width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 329px; top: 327px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw tw2" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 51px; top: 355px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw " width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 332px; top: 430px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw tw2" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 46px; top: 447px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw " width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 253px; top: 264px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg>
+<div style="position: absolute; left: 39px; top: 501px; width: 306px; height: 26px; box-sizing: border-box; padding: 4px 4px; border-radius: 999px; background: #2B0058; border: 3px solid #A511F2; box-shadow: 0 0 10px rgba(165,17,242,0.6)"><div class="grow2" style="position: relative; height: 12px; border-radius: 999px; background: linear-gradient(90deg, #8F1DE6, #E93FB6 45%, #FF8E4D 75%, #FFD84A)"><div class="lsheen" style="position: absolute; inset: 0; border-radius: 999px"></div><svg class="gs" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: -9px; top: -4px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFFBE6"></path></svg></div></div>
+<img src="../assets/1e7374f11e4ce7076a2f626bb2592e36.png" alt="Rewards are on the way to your wallet!" style="position: absolute; left: 22px; top: 528px; width: 340px; height: 32px">
+</sc-if>
+
+<sc-if value="{{ fail }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.72)"></div>
+<div class="pop" style="position: absolute; left: 22px; top: 200px; width: 340px">
+<div style="position: relative; margin: 158px 0 0 5px; width: 330px; box-sizing: border-box; padding: 26px 16px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; background: #FDF3E2; border: 3px solid #F1B23F; border-radius: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.45)">
+<div style="width: 76px; height: 76px; border-radius: 999px; padding: 3px; box-sizing: border-box; background: linear-gradient(180deg, #FFE98A, #F2A81C); box-shadow: 0 6px 14px rgba(138,44,180,0.28)"><div style="width: 100%; height: 100%; border-radius: 999px; background: radial-gradient(circle at 35% 30%, #B158F0 0%, #7A1FC8 55%, #4E0E96 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.8a14 14 0 0 1 6-3.1"></path><path d="M14.5 5.6a14 14 0 0 1 7 3.2"></path><path d="M5.5 12.2a9.5 9.5 0 0 1 3.7-2.2"></path><path d="M15.6 10.3a9.5 9.5 0 0 1 2.9 1.9"></path><path d="M8.8 15.4a4.8 4.8 0 0 1 6.4 0"></path><path d="M12 19.2h.01"></path><path d="M3.5 3.5l17 17" stroke="#FFD24A" stroke-width="2.6"></path></svg></div></div>
+<div style="font-weight: 800; font-size: 19px; color: #2B0F5C">Sorry, network error.</div>
+<div style="font-size: 13px; font-weight: 600; color: #6A5A86; line-height: 1.4">Your reward is still available.<br>Please try again.</div>
+<button type="button" onClick="{{ backToPopup }}" style="margin-top: 6px; width: 100%; height: 48px; border-radius: 14px; border: 2px solid #F6C04A; background: linear-gradient(180deg, #FF8A1F, #E0441B); color: #FFFFFF; font-family: inherit; font-size: 18px; font-weight: 800; cursor: pointer">Try Again</button>
+</div>
+<img src="../assets/872a0a1f08350849dd39d9010c584110.png" alt="Download APP Get ₱188 · APP REWARD" style="position: absolute; left: -5px; top: 0; width: 349px; height: 166px; pointer-events: none">
+<button type="button" aria-label="Close" onClick="{{ backToPopup }}" style="position: absolute; left: 297px; top: 3px; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ block }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.72)"></div>
+<div class="pop" style="position: absolute; left: 22px; top: 200px; width: 340px">
+<div style="position: relative; margin: 158px 0 0 5px; width: 330px; box-sizing: border-box; padding: 26px 16px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; background: #FDF3E2; border: 3px solid #F1B23F; border-radius: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.45)">
+<div style="width: 76px; height: 76px; border-radius: 999px; padding: 3px; box-sizing: border-box; background: linear-gradient(180deg, #FFE98A, #F2A81C); box-shadow: 0 6px 14px rgba(138,44,180,0.28)"><div style="width: 100%; height: 100%; border-radius: 999px; background: radial-gradient(circle at 35% 30%, #B158F0 0%, #7A1FC8 55%, #4E0E96 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 6v8"></path><path d="M12 18.5v.01"></path></svg></div></div>
+<div style="font-weight: 800; font-size: 19px; color: #2B0F5C">{{ blockTitle }}</div>
+<div style="font-size: 13px; font-weight: 600; color: #6A5A86; line-height: 1.4">{{ blockReason }}</div>
+<button type="button" onClick="{{ blockAction }}" style="margin-top: 6px; width: 100%; height: 48px; border-radius: 14px; border: 2px solid #F6C04A; background: linear-gradient(180deg, #FF8A1F, #E0441B); color: #FFFFFF; font-family: inherit; font-size: 18px; font-weight: 800; cursor: pointer">{{ blockBtn }}</button>
+</div>
+<img src="../assets/872a0a1f08350849dd39d9010c584110.png" alt="Download APP Get ₱188 · APP REWARD" style="position: absolute; left: -5px; top: 0; width: 349px; height: 166px; pointer-events: none">
+<button type="button" aria-label="Close" onClick="{{ backToPopup }}" style="position: absolute; left: 297px; top: 3px; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ success }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.78)"></div>
+<div class="rays" style="position: absolute; left: 22px; top: 130px; width: 340px; height: 340px; border-radius: 999px; background: repeating-conic-gradient(rgba(255,206,84,0.22) 0deg 9deg, rgba(255,206,84,0) 9deg 24deg); opacity: 0.9"></div>
+<div style="position: absolute; left: 52px; top: 170px; width: 280px; height: 280px; border-radius: 999px; background: radial-gradient(circle, rgba(255,196,80,0.45) 0%, rgba(255,196,80,0) 70%)"></div>
+<div class="succart" style="position: absolute; left: 22px; top: 150px; width: 340px; height: 426px"><img src="../assets/d518a7d63b1b1881760ffea73f6578f4.png" alt="+₱188 · APP Reward Claimed ₱188 · Congratulations! Your reward has been credited." style="width: 340px; height: 426px; display: block"><div style="position: absolute; left: 36px; top: 258px; width: 276px; height: 86px; border-radius: 24px; overflow: hidden; pointer-events: none"><div class="plateshine"></div></div></div>
+<div class="pillglow" style="position: absolute; left: 112px; top: 9px; width: 138px; height: 38px; box-sizing: border-box; border-radius: 999px; background: #FFE8A3; border: 2px solid #F5B400; display: flex; align-items: center; gap: 8px; padding: 0 6px"><div style="width: 24px; height: 24px; border-radius: 999px; background: #F5B400; border: 2px solid #D18A00; box-sizing: border-box"></div><div style="flex-grow: 1; font-weight: 800; font-size: 16px; color: #1F1535">{{ appBalText }}</div><div style="width: 24px; height: 24px; border-radius: 6px; background: #6D4BE0; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800">+</div></div>
+<div class="pop" style="position: absolute; left: 196px; top: 52px; padding: 4px 10px; border-radius: 999px; background: #16A34A; color: #FFFFFF; font-weight: 800; font-size: 13px">+ ₱188.00</div>
+<div><div class="gstars0"><svg class="tw " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 40px; top: 250px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw tw2" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 420px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="tw " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 340px; top: 470px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF1B8"></path></svg><svg class="gs" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 251px; top: 243px; animation-delay: 0.45s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 342px; top: 292px; animation-delay: 0.1s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 262px; top: 354px; animation-delay: 0.65s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 343px; top: 433px; animation-delay: 0.25s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 295px; top: 465px; animation-delay: 0.85s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 45px; top: 343px; animation-delay: 0.4s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 112px; top: 386px; animation-delay: 0.05s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 22px; top: 442px; animation-delay: 0.6s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 91px; top: 465px; animation-delay: 0.3s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gstars"><svg class="gs" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 291px; top: 403px; animation-delay: 0.0s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 334px; top: 366px; animation-delay: 0.35s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 288px; top: 322px; animation-delay: 0.7s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 320px; top: 279px; animation-delay: 0.2s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 309px; top: 223px; width: 18px; height: 18px; animation-delay: 1.26s"><svg class="gs" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.55s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 354px; top: 190px; width: 12px; height: 12px; animation-delay: 1.45s"><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.9s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 323px; top: 143px; width: 14px; height: 14px; animation-delay: 1.63s"><svg class="gs" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.15s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 264px; top: 106px; width: 12px; height: 12px; animation-delay: 1.77s"><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.5s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 202px; top: 70px; width: 16px; height: 16px; animation-delay: 1.91s"><svg class="gs" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.8s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 154px; top: 46px; width: 12px; height: 12px; animation-delay: 2.03s"><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.3s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 230px; top: 144px; width: 12px; height: 12px; animation-delay: 1.85s"><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.75s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 292px; top: 87px; width: 16px; height: 16px; animation-delay: 1.70s"><svg class="gs" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.2s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 185px; top: 105px; width: 10px; height: 10px; animation-delay: 1.96s"><svg class="gs" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.55s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 324px; top: 224px; width: 12px; height: 12px; animation-delay: 1.27s"><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.0s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 115px; top: 175px; width: 10px; height: 10px; animation-delay: 2.12s"><svg class="gs" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.4s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 345px; top: 208px; width: 14px; height: 14px; animation-delay: 1.35s"><svg class="gs" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.1s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 335px; top: 173px; width: 10px; height: 10px; animation-delay: 1.53s"><svg class="gs" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.6s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 297px; top: 130px; width: 16px; height: 16px; animation-delay: 1.69s"><svg class="gs" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.3s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 246px; top: 116px; width: 12px; height: 12px; animation-delay: 1.81s"><svg class="gs" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.7s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 175px; top: 63px; width: 14px; height: 14px; animation-delay: 1.98s"><svg class="gs" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.2s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="gspawn" style="position: absolute; left: 140px; top: 35px; width: 10px; height: 10px; animation-delay: 2.06s"><svg class="gs" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 0px; top: 0px; animation-delay: 0.5s"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div><div class="burstflash"></div><div class="burstring"></div><div class="bk bk0"></div><div class="bc b0 ca"></div><svg class="bs bs0" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.0s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk1"></div><div class="bc b1 cb"></div><svg class="bs bs1" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.2s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk2"></div><div class="bc b2 ce"></div><svg class="bs bs2" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.4s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk3"></div><div class="bc b3 ca"></div><svg class="bs bs3" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.6s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk4"></div><div class="bc b4 cb"></div><svg class="bs bs4" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.0s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk5"></div><div class="bc b5 ce"></div><svg class="bs bs5" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.2s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk6"></div><div class="bc b6 ca"></div><svg class="bs bs6" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.4s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk7"></div><div class="bc b7 cb"></div><svg class="bs bs7" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.6s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk11"></div><div class="bc b11 ce"></div><svg class="bs bs11" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.6s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk8"></div><div class="bc b8 ce"></div><svg class="bs bs8" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.0s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk12"></div><div class="bc b12 ca"></div><svg class="bs bs12" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.0s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk13"></div><div class="bc b13 cb"></div><svg class="bs bs13" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.2s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk9"></div><div class="bc b9 ca"></div><svg class="bs bs9" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.2s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk14"></div><div class="bc b14 ce"></div><svg class="bs bs14" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.4s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><div class="bk bk10"></div><div class="bc b10 cb"></div><svg class="bs bs10" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="bsp" style="animation-delay: 0.4s" d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6CC"></path></svg><svg class="rs rs0" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs6" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs7" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg><svg class="rs rs9" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF3B8"></path></svg></div>
+<button type="button" aria-label="Skip" onClick="{{ skipSuccess }}" style="position: absolute; inset: 0; border: none; background: transparent; cursor: pointer"></button>
+</sc-if>
+</div>
+</div>
+
+<!-- ================= 演示控制台 ================= -->
+<div style="width: 420px; display: flex; flex-direction: column; gap: 14px; font-family: 'Noto Sans SC', sans-serif">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 22px; font-weight: 700">演示控制台</div>
+<div style="font-size: 13px; color: #574F6B">模拟玩家行为，非产品功能；数值以后台配置为准</div>
+</div>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #DDD5EC">
+<div style="font-size: 15px; font-weight: 700">当前状态</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; font-size: 13px">
+<span style="color: #574F6B">H5 身份</span><span style="font-weight: 700">{{ sH5 }}</span>
+<span style="color: #574F6B">H5 底部引导</span><span style="font-weight: 700">{{ sGuide }}</span>
+<span style="color: #574F6B">APP 安装</span><span style="font-weight: 700">{{ sInstalled }}</span>
+<span style="color: #574F6B">APP Login</span><span style="font-weight: 700">{{ sLogin }}</span>
+<span style="color: #574F6B">APP Deposit</span><span style="font-weight: 700">{{ depText }} / ₱1,000</span>
+<span style="color: #574F6B">APP Valid Bet · Slot</span><span style="font-weight: 700">{{ betText }} / ₱5,000</span>
+<span style="color: #574F6B">按钮状态</span><span style="font-weight: 700">{{ sBtn }}</span>
+<span style="color: #574F6B">奖励流水</span><span style="font-weight: 700">{{ sTurnover }}</span>
+<span style="color: #574F6B">领取拦截</span><span style="font-weight: 700">{{ sBlock }}</span>
+</div>
+</div>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #DDD5EC">
+<div style="font-size: 15px; font-weight: 700">登录 / 访问模拟（登录时判断是否已领取）</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<button type="button" onClick="{{ h5GuestVisit }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 访客进首页</button><button type="button" onClick="{{ h5FirstLogin }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: none; background: #6D28D9; color: #FFFFFF">H5 当日首次登录</button><button type="button" onClick="{{ h5SameDayLogin }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 同日再次登录</button>
+<button type="button" onClick="{{ h5Logout }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 退出登录</button><button type="button" onClick="{{ appHome }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">APP 再次进首页</button><button type="button" onClick="{{ appUninstall }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">模拟卸载 APP</button>
+</div>
+</div>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #DDD5EC">
+<div style="font-size: 15px; font-weight: 700">计入活动进度</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<button type="button" onClick="{{ appDeposit }}" style="min-height: 44px; border: none; border-radius: 10px; background: #6D28D9; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 内充值成功 +₱500</button>
+<button type="button" onClick="{{ appSlotBet }}" style="min-height: 44px; border: none; border-radius: 10px; background: #6D28D9; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 内 Slot 有效投注 +₱2,500</button>
+</div>
+<div style="font-size: 15px; font-weight: 700; padding-top: 6px">不计入 / 回滚</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<button type="button" onClick="{{ h5Deposit }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">H5 端充值 +₱500</button>
+<button type="button" onClick="{{ h5SlotBet }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">H5 端 Slot 投注 +₱2,500</button>
+<button type="button" onClick="{{ appCasinoBet }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 内 Casino 投注 +₱2,500</button>
+<button type="button" onClick="{{ appRefund }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 充值退款 −₱500</button>
+</div>
+<div style="display: flex; gap: 10px; padding-top: 6px">
+<button type="button" onClick="{{ cycleBlock }}" style="flex-grow: 1; min-height: 44px; border: 1px solid #CFC8DD; border-radius: 10px; background: {{ blockBg }}; color: #1F1535; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">切换领取拦截</button>
+<button type="button" onClick="{{ toggleFail }}" style="flex-grow: 1; min-height: 44px; border: 1px solid #CFC8DD; border-radius: 10px; background: {{ failBg }}; color: #1F1535; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">{{ failLabel }}</button>
+<button type="button" onClick="{{ reset }}" style="min-height: 44px; padding: 0 18px; border: 1px solid #CFC8DD; border-radius: 10px; background: #FFFFFF; color: #1F1535; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">重置演示</button>
+</div>
+</div>
+<div style="flex-grow: 1; background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #DDD5EC; overflow: hidden">
+<div style="font-size: 15px; font-weight: 700">演示日志</div>
+<sc-for list="{{ logs }}" as="l" hint-placeholder-count="3">
+<div style="font-size: 13px; line-height: 1.5; padding: 6px 0; border-top: 1px solid #EEEAF4; color: #3E3851">{{ l.t }}</div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1400,"height":1120}}'>
+class Component extends DCLogic {
+  init() {
+    return { betCfg: 'slot', cbet: 0, installed: false, platform: '', loggedIn: false, appAtLogin: false, dep: 0, bet: 0, balance: 0, shown: null,
+      claimed: false, failNext: false, blockIdx: 0, phase: 'idle', h5Drawer: false, h5Popup: true, h5DlPage: false, h5Toast: '',
+      h5Logged: false, h5Claimed: false, dontShow: false, h5Suppress: false,
+      appDrawer: false, claimPopup: false, bump: false, bannerClosed: false, appToast: '', loginRecorded: false,
+      logs: [{ t: 'H5：访客访问首页 → 每次都自动弹出底部下载引导（访客无“今日不再显示”选项）' }] };
+  }
+  blocks() { return ['无', 'KYC 要求不满足', '防重复命中（同 KYC / 手机号 / 设备已领取）', '风控拦截', '账号冻结或停用', '活动预算已耗尽']; }
+  s() { return Object.assign(this.init(), this.state || {}); }
+  log(t) { const s = this.s(); this.setState({ logs: [{ t: t }].concat(s.logs).slice(0, 9) }); }
+  later(fn, ms) { this._t = this._t || []; this._t.push(setTimeout(fn, ms)); }
+  componentWillUnmount() { (this._t || []).forEach(clearTimeout); if (this._iv) clearInterval(this._iv); }
+  appToastShow(t) { this.setState({ appToast: t }); this.later(() => this.setState({ appToast: '' }), 1800); }
+  toast(t) { this.setState({ h5Toast: t }); this.later(() => this.setState({ h5Toast: '' }), 1800); }
+  money(n) { return '₱' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  num(n) { return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  betCfgs() { return ['slot', 'slotcasino', 'all']; }
+  betCfgName(c) { return { slot: '仅 Slot（默认）', slotcasino: 'Slot + Casino', all: '全部游戏' }[c]; }
+  betsOk(s) { if (s.betCfg === 'all') return s.bet + s.cbet >= 5000; if (s.betCfg === 'slotcasino') return s.bet >= 5000 && s.cbet >= 5000; return s.bet >= 5000; }
+  eligible(s) { return s.loginRecorded && s.dep >= 1000 && this.betsOk(s) && !s.claimed; }
+  closeSheet(c) {
+    const upd = { h5Popup: false };
+    if (c.h5Logged && c.dontShow) upd.h5Suppress = true;
+    this.setState(upd);
+    if (c.h5Logged && c.dontShow) this.log('H5：已勾选今日不再显示 → 当前设备今日不再自动弹出（右侧图标仍可手动打开）');
+  }
+  h5Get(p, from) {
+    const c = this.s();
+    if (c.h5Popup) this.closeSheet(c);
+    if (c.installed && !(c.h5Logged && c.h5Claimed)) {
+      this.toast('Opening 789Bingo APP ...');
+      if (c.loggedIn) {
+        if (!c.claimed) { this.setState({ claimPopup: true, appDrawer: false }); this.log(from + '：点击 ' + p + ' → 检测到已安装 APP → 唤起 APP 并显示领取弹窗'); }
+        else { this.log(from + '：点击 ' + p + ' → 已安装 APP → 唤起 APP 首页'); }
+      } else { this.setState({ appAtLogin: true }); this.log(from + '：点击 ' + p + ' → 检测到已安装 APP → 唤起 APP（未登录，进入登录页）'); }
+      return;
+    }
+    this.setState({ installed: true, platform: p });
+    this.toast('Downloading ' + p + ' ...');
+    this.log(from + '：点击 ' + p + ' → 未安装，下载 APP → 右侧 APP 已安装（未登录版首页）');
+  }
+  claim() {
+    const s = this.s();
+    if (!this.eligible(s)) return;
+    this.setState({ phase: 'loading' });
+    this.log('APP：点击 Claim ₱188 → Loading，服务端校验资格');
+    this.later(() => {
+      const c = this.s();
+      if (c.blockIdx > 0) {
+        this.setState({ phase: 'block' });
+        this.log('APP：领取被拦截（' + this.blocks()[c.blockIdx] + '）→ 提示文案待定，状态保持未领取');
+        return;
+      }
+      if (c.failNext) {
+        this.setState({ phase: 'fail', failNext: false });
+        this.log('APP：发奖失败 → 提示 “Sorry, network error.”，点击 Try Again 回到领取弹窗，由用户自行再次领取');
+        return;
+      }
+      const from = c.balance, to = c.balance + 188;
+      this.setState({ phase: 'success', claimed: true, balance: to, shown: from, bump: true });
+      this.log('APP：发奖成功 → 金币飞入余额 +₱188；Overview 与 Transaction History 记录奖励来源；生成 5 倍奖金提现流水要求（₱940，仅 Slot，提款时稽核）');
+      let i = 0; const steps = 30;
+      this.later(() => {
+        this._iv = setInterval(() => {
+          i++; this.setState({ shown: from + (to - from) * i / steps });
+          if (i >= steps) { clearInterval(this._iv); this._iv = null; this.setState({ shown: null }); }
+        }, 30);
+      }, 2100);
+      this.later(() => { if (this.s().phase === 'success') this.finishSuccess(); }, 3500);
+    }, 1200);
+  }
+  finishSuccess() { if (this._iv) { clearInterval(this._iv); this._iv = null; } this.setState({ phase: 'idle', bump: false, shown: null }); this.log('APP：显示 Claimed，关闭弹窗后状态为已领取 → 隐藏底部横幅与右侧活动图标；H5 下次登录时同步隐藏'); }
+  needApp(fn) { const s = this.s(); if (!s.loggedIn) { this.log('提示：请先下载 APP 并在 APP 登录'); return; } fn(s); }
+  h5Enter(kind) {
+    const c = this.s();
+    const base = { h5Logged: true, h5Claimed: c.claimed, h5Drawer: false, h5DlPage: false };
+    if (kind === 'newday') base.h5Suppress = false;
+    const suppress = kind === 'newday' ? false : c.h5Suppress;
+    if (c.claimed) { this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：' + (kind === 'newday' ? '当日首次登录' : '同日再次登录') + ' → 已领取 → 不弹底部引导，隐藏右侧活动图标，左侧 App Download 无 Get 图标（点击仍进全屏海报）'); return; }
+    if (kind === 'newday') { this.setState(Object.assign(base, { h5Popup: true, dontShow: false })); this.log('H5：当日首次登录 → 未领取 → 底部自动弹出下载引导（可勾选今日不再显示）'); return; }
+    if (suppress) { this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：同日再次登录 → 当前设备今日已勾选不再显示 → 不弹出，只显示右侧图标与左侧 Get ₱188'); return; }
+    this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：同日再次登录 → 非当日首次登录 → 不弹出，只显示右侧图标与左侧 Get ₱188');
+  }
+  renderVals() {
+    const s = this.s();
+    const elig = this.eligible(s);
+    const depPct = Math.min(100, s.dep / 1000 * 100), betPct = Math.min(100, s.bet / 5000 * 100);
+    const shownBal = s.shown == null ? s.balance : s.shown;
+    const btn = s.claimed ? 'Claimed' : (elig ? 'Claim ₱188' : 'In Progress');
+    const mk = (label, val, btnTxt, go) => { const pct = Math.min(100, val / 5000 * 100); const done = val >= 5000; return { label: label, text: this.money(Math.min(val, 5000)), target: '₱5,000', pct: pct, bar: done ? '#22A15A' : 'linear-gradient(90deg, #E73FB2, #FF6B3D, #FFB627)', todo: !done, done: done, btn: btnTxt, go: go }; };
+    const goBet = (txt) => () => { this.setState({ claimPopup: false }); this.appToastShow('→ ' + txt); this.log('APP：点击投注按钮 → ' + txt); };
+    const betRows = s.betCfg === 'all' ? [mk('APP Valid Bet', s.bet + s.cbet, 'Play', goBet('跳转游戏大厅（原型示意）'))]
+      : (s.betCfg === 'slotcasino' ? [mk('APP Valid Bet · Slot', s.bet, 'Play Slot', goBet('跳转 Slot 游戏列表（原型示意）')), mk('APP Valid Bet · Casino', s.cbet, 'Play Casino', goBet('跳转 Casino 游戏列表（原型示意）'))]
+      : [mk('APP Valid Bet · Slot', s.bet, 'Play Slot', goBet('跳转 Slot 游戏列表（原型示意）'))]);
+    const bannerBet = s.betCfg === 'all' ? ('Valid Bet ₱' + Math.min(s.bet + s.cbet, 5000).toLocaleString('en-US') + '/5,000') : (s.betCfg === 'slotcasino' ? ('Bets ' + betRows.filter(r => r.done).length + '/' + betRows.length + ' done') : ('Slot ₱' + Math.min(s.bet, 5000).toLocaleString('en-US') + '/5,000'));
+    const h5Hide = s.h5Logged && s.h5Claimed;
+    return {
+      betRows: betRows, bannerBet: bannerBet,
+      balText: this.num(s.balance), appBalText: this.num(shownBal),
+      pillBg: s.bump ? '#FFE8A3' : '#F3F3F6', pillClass: s.bump ? 'bump' : '',
+      h5Drawer: s.h5Drawer, h5Popup: s.h5Popup, h5DlPage: s.h5DlPage, h5Toast: !!s.h5Toast, h5ToastText: s.h5Toast,
+      h5Logged: s.h5Logged, h5Guest: !s.h5Logged,
+      notInstalled: !s.installed, appGuest: s.installed && !s.loggedIn && !s.appAtLogin, appLoginPage: s.installed && !s.loggedIn && s.appAtLogin,
+      loggedIn: s.loggedIn, showGuestBanner: s.installed && !s.loggedIn && !s.appAtLogin && !s.bannerClosed,
+      appDrawer: s.appDrawer, claimPopup: s.claimPopup, eligible: elig, claimed: s.claimed,
+      depText: this.money(Math.min(s.dep, 1000)), betText: this.money(Math.min(s.bet, 5000)),
+      depPct: depPct, betPct: betPct, depBar: depPct >= 100 ? '#22A15A' : 'linear-gradient(90deg, #E73FB2, #FF6B3D, #FFB627)', betBar: betPct >= 100 ? '#22A15A' : 'linear-gradient(90deg, #E73FB2, #FF6B3D, #FFB627)',
+      depDone: s.dep >= 1000, depTodo: s.dep < 1000, betDone: s.bet >= 5000, betTodo: s.bet < 5000,
+      appToast: !!s.appToast, appToastText: s.appToast,
+      showPopup: s.claimPopup && s.phase !== 'fail' && s.phase !== 'block',
+      h5ShowDlTag: !h5Hide, dontShow: s.dontShow,
+      sH5: s.h5Logged ? (s.h5Claimed ? '已登录 · 已领取' : '已登录 · 未领取') : '访客（未登录）',
+      sGuide: !s.h5Logged ? '访客：每次进入首页都弹出' : (h5Hide ? '已领取：不显示' : (s.h5Suppress ? '今日不再显示（当前设备）' : '当日首次登录自动弹出')),
+      sBlock: this.blocks()[s.blockIdx],
+      blockTitle: ({ 1: 'Please complete KYC verification to claim this reward.', 2: 'This reward has already been claimed by a linked account.', 3: 'Unable to claim at this time. Please contact Customer Service.', 4: 'Unable to claim at this time. Please contact Customer Service.', 5: 'Sorry, the promotion has ended…' })[s.blockIdx] || '', blockReason: '拦截原因（演示）：' + this.blocks()[s.blockIdx], blockBtn: s.blockIdx === 1 ? 'Verify Now' : 'OK', blockAction: s.blockIdx === 1 ? (() => { this.setState({ phase: 'idle', claimPopup: false }); this.appToastShow('→ 跳转 KYC 认证页（原型示意）'); this.log('APP：KYC 拦截 → 点击 Verify Now 跳转 KYC 认证页'); }) : (() => { this.setState({ phase: 'idle', claimPopup: true }); this.log('APP：关闭拦截提示，回到领取弹窗（状态保持未领取）'); }),
+      toggleDontShow: () => { const c = this.s(); this.setState({ dontShow: !c.dontShow }); this.log(!c.dontShow ? 'H5：勾选 Don\'t show again today' : 'H5：取消勾选 Don\'t show again today'); },
+      btnProgress: !s.claimed && !elig, btnClaim: elig, btnClaimed: s.claimed,
+      showBanner: s.loggedIn && !s.claimed && !s.bannerClosed,
+      h5ShowRail: !h5Hide, appShowRail: !s.claimed,
+      depShort: '₱' + Math.min(s.dep, 1000).toLocaleString('en-US') + '/1,000', betShort: '₱' + Math.min(s.bet, 5000).toLocaleString('en-US') + '/5,000',
+      loading: s.phase === 'loading', fail: s.phase === 'fail', block: s.phase === 'block', success: s.phase === 'success',
+      sInstalled: s.installed ? ('已安装（' + s.platform + '）') : '未安装', sLogin: s.loggedIn ? 'Completed' : 'Not Completed',
+      sBtn: btn, sTurnover: s.claimed ? '₱940（提款时稽核）' : '—', sBetCfg: this.betCfgName(s.betCfg),
+      failBg: s.failNext ? '#FDE2D2' : '#FFFFFF', failLabel: s.failNext ? '下次发奖失败：开' : '下次发奖失败：关',
+      blockBg: s.blockIdx > 0 ? '#FDE2D2' : '#FFFFFF',
+      logs: s.logs,
+      openH5Drawer: () => { this.setState({ h5Drawer: true }); this.log('H5：打开侧边栏'); },
+      closeH5Drawer: () => this.setState({ h5Drawer: false }),
+      openH5Popup: () => { const c = this.s(); this.setState({ h5Popup: true, dontShow: c.h5Suppress }); this.log('H5：点击右侧活动图标 → 显示底部下载引导'); },
+      openH5DlPage: () => { const c = this.s(); this.setState({ h5Drawer: false, h5DlPage: true }); this.log('H5：Others → App Download → 显示全屏下载宣传页' + ((c.h5Logged && c.h5Claimed) ? '（已领取：无 Get 图标，不强制使用 APP）' : '')); },
+      closeH5DlPage: () => { this.setState({ h5DlPage: false }); this.log('H5：下载宣传页返回首页'); },
+      closeH5Popup: () => this.closeSheet(this.s()),
+      getAndroid: () => this.h5Get('Android APP', this.s().h5DlPage ? 'H5 下载宣传页' : 'H5 底部引导'),
+      getIos: () => this.h5Get('iPhone APP', this.s().h5DlPage ? 'H5 下载宣传页' : 'H5 底部引导'),
+      getAuto: () => this.h5Get('Android APP', 'H5 下载宣传页（DOWNLOAD NOW 按设备系统识别）'),
+      h5GuestVisit: () => { this.setState({ h5Logged: false, h5Popup: true, h5Drawer: false, h5DlPage: false }); this.log('H5：访客进入首页 → 每次都自动弹出底部下载引导（无今日不再显示选项）'); },
+      h5Login: () => { this.log('H5：走平台现有注册 / 登录流程'); this.h5Enter('newday'); },
+      h5FirstLogin: () => this.h5Enter('newday'),
+      h5SameDayLogin: () => this.h5Enter('sameday'),
+      h5Logout: () => { this.setState({ h5Logged: false, h5Popup: true, h5Drawer: false, h5DlPage: false }); this.log('H5：退出登录 → 访客首页 → 自动弹出底部引导'); },
+      goAppLogin: () => { this.setState({ appAtLogin: true }); this.log('APP：未登录点击横幅 / 活动图标 → 进入登录页（走 APP 现有注册登录流程）'); },
+      doLogin: () => { this.setState({ loggedIn: true, loginRecorded: true, appAtLogin: false, bannerClosed: false }); this.log(this.s().claimed ? 'APP：登录成功 → 已领取 → 隐藏底部横幅与右侧活动图标' : 'APP：登录成功 → 记录 APP Login；未领取 → 显示底部横幅（实时进度）与右侧活动图标'); },
+      openAppDrawer: () => { this.setState({ appDrawer: true }); this.log('APP：打开侧边栏（APP 端无 App Download 选项）'); },
+      closeAppDrawer: () => this.setState({ appDrawer: false }),
+      openClaimFromRail: () => { this.setState({ claimPopup: true }); this.log('APP：点击右侧活动图标 → 领取弹窗，按钮：' + btn); },
+      openClaimFromBanner: () => { this.setState({ claimPopup: true }); this.log('APP：点击底部横幅 → 领取弹窗，按钮：' + btn); },
+      closeBanner: () => { this.setState({ bannerClosed: true }); this.log('APP：关闭底部横幅 → 用户再次进入首页时重新显示'); },
+      appHome: () => { const c = this.s(); if (!c.installed) { this.log('提示：APP 未安装'); return; } this.setState({ bannerClosed: false, claimPopup: false, appDrawer: false }); this.log('APP：再次进入首页 → ' + (c.loggedIn ? (c.claimed ? '已领取，不显示横幅与图标' : '底部横幅重新显示') : '未登录版首页，宣传横幅重新显示')); },
+      appUninstall: () => { const c = this.s(); if (!c.installed) { this.log('提示：APP 当前未安装'); return; } this.setState({ installed: false, loggedIn: false, appAtLogin: false, claimPopup: false, appDrawer: false, phase: 'idle' }); this.log('模拟卸载 APP → 进度与 APP 登录记录保留在服务端'); },
+      closeClaimPopup: () => this.setState({ claimPopup: false }),
+      backToPopup: () => { this.setState({ phase: 'idle', claimPopup: true }); this.log('APP：回到领取弹窗（按钮仍为 Claim ₱188，由用户决定何时再次领取）'); },
+      goDeposit: () => { this.setState({ claimPopup: false }); this.appToastShow('→ 跳转钱包充值页（原型示意）'); this.log('APP：点击 Deposit → 跳转钱包充值页'); },
+      goBet: () => { this.setState({ claimPopup: false }); this.appToastShow('→ 跳转 Slot 游戏列表（原型示意）'); this.log('APP：点击 Play Slot → 跳转 Slot 游戏列表'); },
+      doClaim: () => this.claim(),
+      skipSuccess: () => { if (this.s().phase === 'success') { this.log('APP：点击任意处跳过成功动效'); this.finishSuccess(); } },
+      appDeposit: () => this.needApp(c => { this.setState({ dep: c.dep + 500, balance: c.balance + 500 }); this.log('APP 内充值成功 +₱500 → 计入 APP Deposit'); }),
+      appSlotBet: () => this.needApp(c => { this.setState({ bet: c.bet + 2500 }); this.log(c.claimed ? 'APP 内 Slot 投注 +₱2,500 → 计入奖金提现流水稽核' : 'APP 内 Slot 有效投注 +₱2,500 → 计入 APP Valid Bet' + (c.betCfg === 'all' ? '（全部游戏合并累计）' : ' · Slot')); }),
+      appCasinoBet: () => this.needApp(() => this.log('APP 内 Casino 投注 +₱2,500 → 本活动仅统计 Slot，不计入')),
+      appRefund: () => this.needApp(c => {
+        if (c.claimed) { const nb = Math.max(0, c.balance - 500); const nd = Math.max(0, c.dep - 500); if (nd >= 1000) { this.setState({ dep: nd, balance: nb }); this.log('APP 充值退款 −₱500（领取后）→ 仍满足充值条件，领取状态不变'); return; } if (nb >= 188) { this.setState({ dep: nd, balance: nb - 188, claimed: false, h5Claimed: false, bannerClosed: false }); this.log('APP 充值退款 −₱500（领取后）→ 数据回滚：扣回已领取的 ₱188，条件状态与领取状态回滚为未领取'); } else { this.setState({ balance: nb }); this.log('APP 充值退款 −₱500（领取后）→ 账户余额不足以扣回 ₱188：条件状态与领取状态均不回滚'); } return; }
+        const wasElig = this.eligible(c);
+        this.setState({ dep: Math.max(0, c.dep - 500), balance: Math.max(0, c.balance - 500) });
+        this.log('APP 充值退款 −₱500 → 不计入 APP Deposit，进度同步回退' + (wasElig && c.dep - 500 < 1000 ? '；状态由“满足”退回“未满足”' : ''));
+      }),
+      h5Deposit: () => { const c = this.s(); this.setState({ balance: c.balance + 500 }); this.log('H5 端充值 +₱500 → 不计入 APP Deposit'); },
+      h5SlotBet: () => this.log('H5 端 Slot 投注 +₱2,500 → 不计入 APP Valid Bet'),
+      cycleBetCfg: () => { const c = this.s(); const L = this.betCfgs(); const n = L[(L.indexOf(c.betCfg) + 1) % L.length]; this.setState({ betCfg: n }); this.log('演示：后台参与游戏配置 = ' + this.betCfgName(n) + ' → 领取弹窗投注进度条同步变化'); },
+      toggleFail: () => { const c = this.s(); this.setState({ failNext: !c.failNext }); },
+      cycleBlock: () => { const c = this.s(); const n = (c.blockIdx + 1) % this.blocks().length; this.setState({ blockIdx: n }); this.log('演示：下次领取拦截 = ' + this.blocks()[n]); },
+      reset: () => { (this._t || []).forEach(clearTimeout); this._t = []; if (this._iv) clearInterval(this._iv); this.setState(this.init()); }
+    };
+  }
+}
+</script>
+</body>
+</html>

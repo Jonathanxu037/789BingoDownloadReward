@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>789Bingo · APP下载奖励活动 · 原型与需求文档</title>
+<style>
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{display:flex;font-family:'Microsoft YaHei','微软雅黑','PingFang SC','Noto Sans SC',sans-serif;color:#1F1535;background:#F4F2F8}
+aside{width:290px;flex-shrink:0;height:100%;overflow-y:auto;background:#1F1240;color:#E9E4F5;padding:18px 0 40px}
+.brand{padding:0 20px 16px;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:10px}
+.brand b{display:block;font-size:16px;color:#FFFFFF}
+.brand span{font-size:12px;color:#A99BD0}
+.sec{margin-top:14px}
+.sec>.head{display:flex;align-items:center;gap:8px;padding:8px 20px;font-size:14px;font-weight:700;color:#FFD54A;cursor:pointer;user-select:none}
+.sec>.head .tog{width:14px;color:#FFD54A}
+.sec.closed>.body{display:none}
+.row{display:flex;align-items:center;padding:0 12px 0 22px}
+.row.leaf{padding-left:36px}
+.tog{width:14px;flex-shrink:0;font-size:11px;color:#A99BD0;cursor:pointer;user-select:none;transition:transform .15s}
+.grp.open>.row .tog,.sec:not(.closed)>.head .tog{transform:rotate(90deg)}
+.grp>.kids{display:none}
+.grp.open>.kids{display:block}
+a{display:block;flex-grow:1;padding:7px 10px;border-radius:6px;color:#E9E4F5;text-decoration:none;font-size:13px;line-height:1.4}
+a:hover{background:rgba(255,255,255,0.08)}
+a.active{background:#5B21B6;color:#FFFFFF;font-weight:700}
+a.sub{padding-left:48px;font-size:12.5px;color:#CFC6E6}
+.body>a.top{padding-left:36px}
+main{flex-grow:1;height:100%;display:flex;flex-direction:column;min-width:0}
+.bar{height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#FFFFFF;border-bottom:1px solid #E4DFEE;font-size:13px;color:#574F6B}
+.bar b{color:#1F1535}
+.bar a{display:inline;flex-grow:0;padding:4px 10px;color:#5B21B6;border:1px solid #DDD2F7;border-radius:6px;font-size:12px}
+iframe{flex-grow:1;width:100%;border:0;background:#FFFFFF}
+</style>
+</head>
+<body>
+<aside>
+<div class="brand"><b>APP下载奖励活动</b><span>789Bingo · 前台原型 / 后台原型 / PRD v1.0</span></div>
+<div class="sec"><div class="head" onclick="ts(this)"><span class="tog">▸</span>前台原型</div><div class="body">
+<a class="top" href="pages/frontend.dc.html" data-k="fe/frontend">交互原型（H5 + APP + 演示控制台）</a>
+<div class="grp"><div class="row"><span class="tog" onclick="tg(this)">▸</span><a href="pages/state-sidebar-entry.dc.html" data-k="fe/state-sidebar-entry" style="padding-left:10px">状态说明稿</a></div><div class="kids"><a class="sub" href="pages/state-sidebar-entry.dc.html" data-k="fe/state-sidebar-entry">侧边菜单入口三态</a><a class="sub" href="pages/state-popup-inprogress.dc.html" data-k="fe/state-popup-inprogress">领取弹窗 · In Progress</a><a class="sub" href="pages/state-popup-claim.dc.html" data-k="fe/state-popup-claim">领取弹窗 · Claim</a><a class="sub" href="pages/state-popup-claimed.dc.html" data-k="fe/state-popup-claimed">领取弹窗 · Claimed</a><a class="sub" href="pages/state-claim-loading.dc.html" data-k="fe/state-claim-loading">领取 · Loading 动效</a><a class="sub" href="pages/state-claim-success.dc.html" data-k="fe/state-claim-success">领取 · 成功动效</a><a class="sub" href="pages/state-claim-failed.dc.html" data-k="fe/state-claim-failed">领取 · 发奖失败</a></div></div>
+</div></div>
+<div class="sec"><div class="head" onclick="ts(this)"><span class="tog">▸</span>后台原型</div><div class="body">
+<a class="top" href="pages/admin.dc.html" data-k="ad/admin">活动中心 › APP下载奖励活动（交互）</a>
+</div></div>
+<div class="sec"><div class="head" onclick="ts(this)"><span class="tog">▸</span>PRD 需求文档</div><div class="body">
+<a class="top" href="pages/prd.html" data-k="prd/top">文档首页（版本记录与目录）</a>
+<div class="row leaf"><a href="pages/prd.html#c1" data-k="prd/c1">1　文档信息</a></div><div class="row leaf"><a href="pages/prd.html#c2" data-k="prd/c2">2　需求目的</a></div><div class="row leaf"><a href="pages/prd.html#c3" data-k="prd/c3">3　覆盖范围与用户身份</a></div><div class="grp"><div class="row"><span class="tog" onclick="tg(this)">▸</span><a href="pages/prd.html#c4" data-k="prd/c4">4　业务流程说明</a></div><div class="kids"><a class="sub" href="pages/prd.html#s4-1" data-k="prd/s4-1">4.1　主流程（用户视角）</a><a class="sub" href="pages/prd.html#s4-2" data-k="prd/s4-2">4.2　H5 显示分支（按身份）</a><a class="sub" href="pages/prd.html#s4-3" data-k="prd/s4-3">4.3　H5 下载按钮判断</a><a class="sub" href="pages/prd.html#s4-4" data-k="prd/s4-4">4.4　APP 显示分支（按身份）</a><a class="sub" href="pages/prd.html#s4-5" data-k="prd/s4-5">4.5　领取流程与分支</a></div></div><div class="row leaf"><a href="pages/prd.html#c5" data-k="prd/c5">5　元素显示规则</a></div><div class="row leaf"><a href="pages/prd.html#c6" data-k="prd/c6">6　前台页面与元素说明</a></div><div class="row leaf"><a href="pages/prd.html#c7" data-k="prd/c7">7　业务规则</a></div><div class="row leaf"><a href="pages/prd.html#c8" data-k="prd/c8">8　边界与异常</a></div><div class="grp"><div class="row"><span class="tog" onclick="tg(this)">▸</span><a href="pages/prd.html#c9" data-k="prd/c9">9　后台需求</a></div><div class="kids"><a class="sub" href="pages/prd.html#s9-1" data-k="prd/s9-1">9.1　菜单与页面</a><a class="sub" href="pages/prd.html#s9-2" data-k="prd/s9-2">9.2　后台业务流程</a><a class="sub" href="pages/prd.html#s9-3" data-k="prd/s9-3">9.3　活动配置 Tab 字段</a><a class="sub" href="pages/prd.html#s9-4" data-k="prd/s9-4">9.4　领取记录 Tab</a><a class="sub" href="pages/prd.html#s9-5" data-k="prd/s9-5">9.5　活动费用同步（重点）</a><a class="sub" href="pages/prd.html#s9-6" data-k="prd/s9-6">9.6　账变与资金记录</a><a class="sub" href="pages/prd.html#s9-7" data-k="prd/s9-7">9.7　权限与日志</a></div></div><div class="grp"><div class="row"><span class="tog" onclick="tg(this)">▸</span><a href="pages/prd.html#c10" data-k="prd/c10">10　验收标准</a></div><div class="kids"><a class="sub" href="pages/prd.html#c10-1" data-k="prd/c10-1">前台</a><a class="sub" href="pages/prd.html#c10-2" data-k="prd/c10-2">后台</a></div></div><div class="row leaf"><a href="pages/prd.html#c11" data-k="prd/c11">11　已确认决策与原方案差异</a></div><div class="row leaf"><a href="pages/prd.html#c12" data-k="prd/c12">12　待确认事项</a></div>
+</div></div>
+</aside>
+<main>
+<div class="bar"><span id="crumb"><b>前台原型</b> · 交互原型</span><a id="newtab" href="pages/frontend.dc.html" target="_blank" rel="noopener">在新标签页打开</a></div>
+<iframe id="viewer" name="viewer" title="内容" src="pages/frontend.dc.html"></iframe>
+</main>
+<script>
+const viewer=document.getElementById('viewer'), crumb=document.getElementById('crumb'), newtab=document.getElementById('newtab');
+const links=[...document.querySelectorAll('aside a[data-k]')];
+function sectionName(k){return k.startsWith('fe/')?'前台原型':k.startsWith('ad/')?'后台原型':'PRD 需求文档'}
+function activate(a,push){
+  links.forEach(x=>x.classList.remove('active')); a.classList.add('active');
+  const href=a.getAttribute('href');
+  const cur=viewer.getAttribute('src')||'';
+  if(cur.split('#')[0]===href.split('#')[0] && href.includes('#')){
+    try{ const el=viewer.contentWindow.document.getElementById(href.split('#')[1]); if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); } else viewer.src=href; }catch(e){ viewer.src=href; }
+    viewer.setAttribute('src',href);
+  } else { viewer.src=href; }
+  crumb.innerHTML='<b>'+sectionName(a.dataset.k)+'</b> · '+a.textContent;
+  newtab.href=href;
+  let p=a.parentElement; while(p&&p.tagName!=='ASIDE'){ if(p.classList.contains('grp'))p.classList.add('open'); if(p.classList.contains('sec'))p.classList.remove('closed'); p=p.parentElement; }
+  if(push) history.replaceState(null,'','#'+a.dataset.k);
+}
+links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();activate(a,true);}));
+function tg(el){el.closest('.grp').classList.toggle('open');}
+function ts(el){el.parentElement.classList.toggle('closed');}
+const k=decodeURIComponent(location.hash.slice(1));
+const start=links.find(a=>a.dataset.k===k)||links[0];
+activate(start,false);
+</script>
+</body>
+</html>
