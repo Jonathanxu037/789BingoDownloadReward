@@ -14,6 +14,8 @@ body{margin:0}
 a{color:#6D28D9}a:hover{color:#4C1D95}
 .spin{animation:spin 0.9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+.logi{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.logbox{scrollbar-width:thin}
 /*ANIMCSS*/
 .coin{position:absolute;left:204px;top:402px;width:36px;height:30px;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:0;filter:drop-shadow(0 0 6px rgba(255,200,60,0.9))}
 .ca{background-image:url(../assets/81e7fec477abd04264f485edffb20c07.png)}.cb{background-image:url(../assets/1a89d9337a85f000989f5007821f1c01.png)}.ce{background-image:url(../assets/b197fa6f28fef679dcfe344a82660906.png)}
@@ -177,7 +179,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 @media (prefers-reduced-motion: reduce){.bn-shine{display:none}.tw{animation:none;opacity:0.6}}
 </style>
 </helmet>
-<div style="width: 1400px; height: 1120px; box-sizing: border-box; padding: 36px 40px; background: #EFEBF7; display: flex; gap: 48px; font-family: 'Nunito Sans', 'Segoe UI', system-ui, sans-serif; color: #1F1535">
+<div style="width: 1560px; height: 1420px; box-sizing: border-box; padding: 36px 40px; background: #EFEBF7; display: flex; gap: 48px; font-family: 'Nunito Sans', 'Segoe UI', system-ui, sans-serif; color: #1F1535">
 
 <!-- ================= H5 ================= -->
 <div style="display: flex; flex-direction: column; gap: 14px">
@@ -416,7 +418,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 </div>
 
 <!-- ================= 演示控制台 ================= -->
-<div style="width: 420px; display: flex; flex-direction: column; gap: 14px; font-family: 'Noto Sans SC', sans-serif">
+<div style="width: 380px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; font-family: 'Noto Sans SC', sans-serif">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 22px; font-weight: 700">演示控制台</div>
 <div style="font-size: 13px; color: #574F6B">模拟玩家行为，非产品功能；数值以后台配置为准</div>
@@ -461,27 +463,27 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <button type="button" onClick="{{ reset }}" style="min-height: 44px; padding: 0 18px; border: 1px solid #CFC8DD; border-radius: 10px; background: #FFFFFF; color: #1F1535; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">重置演示</button>
 </div>
 </div>
-<div style="flex-grow: 1; background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #DDD5EC; overflow: hidden">
-<div style="font-size: 15px; font-weight: 700">演示日志</div>
-<sc-for list="{{ logs }}" as="l" hint-placeholder-count="3">
-<div style="font-size: 13px; line-height: 1.5; padding: 6px 0; border-top: 1px solid #EEEAF4; color: #3E3851">{{ l.t }}</div>
-</sc-for>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #DDD5EC">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><div style="font-size: 15px; font-weight: 700">演示日志</div><div style="font-size: 12px; color: #8A80A0; white-space: nowrap">共 {{ logCount }} 条 · 最新在上 · 滚动查看更早记录</div></div>
+<div class="logbox" style="height: 528px; overflow-y: auto; border-top: 1px solid #EEEAF4">
+<sc-for list="{{ logs }}" as="l" hint-placeholder-count="3"><div title="{{ l.t }}" style="height: 66px; box-sizing: border-box; padding: 6px 2px; border-bottom: 1px solid #EEEAF4; display: flex; gap: 8px; font-size: 12.5px; line-height: 18px; color: #3E3851"><span style="flex-shrink: 0; min-width: 26px; color: #9A8FB0; font-weight: 700">#{{ l.n }}</span><span class="logi">{{ l.t }}</span></div></sc-for>
+</div>
 </div>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1400,"height":1120}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1560,"height":1420}}'>
 class Component extends DCLogic {
   init() {
     return { betCfg: 'slot', cbet: 0, installed: false, platform: '', loggedIn: false, appAtLogin: false, dep: 0, bet: 0, balance: 0, shown: null,
       claimed: false, failNext: false, blockIdx: 0, phase: 'idle', h5Drawer: false, h5Popup: true, h5DlPage: false, h5Toast: '',
       h5Logged: false, h5Claimed: false, dontShow: false, h5Suppress: false,
       appDrawer: false, claimPopup: false, bump: false, bannerClosed: false, appToast: '', loginRecorded: false,
-      logs: [{ t: 'H5：访客访问首页 → 每次都自动弹出底部下载引导（访客无“今日不再显示”选项）' }] };
+      logs: [{ n: 1, t: 'H5：访客访问首页 → 每次都自动弹出底部下载引导（访客无“今日不再显示”选项）' }] };
   }
   blocks() { return ['无', 'KYC 要求不满足', '防重复命中（同 KYC / 手机号 / 设备已领取）', '风控拦截', '账号冻结或停用', '活动预算已耗尽']; }
   s() { return Object.assign(this.init(), this.state || {}); }
-  log(t) { const s = this.s(); this.setState({ logs: [{ t: t }].concat(s.logs).slice(0, 9) }); }
+  log(t) { const s = this.s(); const n = (s.logs[0] && s.logs[0].n ? s.logs[0].n : s.logs.length) + 1; this.setState({ logs: [{ t: t, n: n }].concat(s.logs).slice(0, 500) }); }
   later(fn, ms) { this._t = this._t || []; this._t.push(setTimeout(fn, ms)); }
   componentWillUnmount() { (this._t || []).forEach(clearTimeout); if (this._iv) clearInterval(this._iv); }
   appToastShow(t) { this.setState({ appToast: t }); this.later(() => this.setState({ appToast: '' }), 1800); }
@@ -597,7 +599,7 @@ class Component extends DCLogic {
       sBtn: btn, sTurnover: s.claimed ? '₱940（提款时稽核）' : '—', sBetCfg: this.betCfgName(s.betCfg),
       failBg: s.failNext ? '#FDE2D2' : '#FFFFFF', failLabel: s.failNext ? '下次发奖失败：开' : '下次发奖失败：关',
       blockBg: s.blockIdx > 0 ? '#FDE2D2' : '#FFFFFF',
-      logs: s.logs,
+      logs: s.logs, logCount: s.logs.length,
       openH5Drawer: () => { this.setState({ h5Drawer: true }); this.log('H5：打开侧边栏'); },
       closeH5Drawer: () => this.setState({ h5Drawer: false }),
       openH5Popup: () => { const c = this.s(); this.setState({ h5Popup: true, dontShow: c.h5Suppress }); this.log('H5：点击右侧活动图标 → 显示底部下载引导'); },

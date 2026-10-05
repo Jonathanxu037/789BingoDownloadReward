@@ -8,7 +8,10 @@
 index.html            入口页：左侧目录 + 右侧内容区
 pages/
   frontend.dc.html    前台交互原型（H5 + APP + 演示控制台）
-  state-*.dc.html     前台状态说明稿（侧边菜单入口、领取弹窗三态、领取动效三步）
+  sidebar-entry.dc.html  侧边菜单入口三态
+  popups.html         领取弹窗三态（整合页）
+  claim-anim.html     领取动效：Loading / 成功 / 失败（整合页）
+  popup-*.dc.html、claim-*.dc.html  整合页引用的单张状态稿
   admin.dc.html       后台交互原型（活动中心 › APP下载奖励活动）
   prd.html            PRD 需求文档（单页，含章节锚点）
   support.js          原型运行时（含 React，无需联网加载）

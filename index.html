@@ -8,7 +8,7 @@
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{display:flex;font-family:'Microsoft YaHei','微软雅黑','PingFang SC','Noto Sans SC',sans-serif;color:#1F1535;background:#F4F2F8}
-aside{width:290px;flex-shrink:0;height:100%;overflow-y:auto;background:#1F1240;color:#E9E4F5;padding:18px 0 40px}
+aside{width:270px;transition:margin .2s;flex-shrink:0;height:100%;overflow-y:auto;background:#1F1240;color:#E9E4F5;padding:18px 0 40px}
 .brand{padding:0 20px 16px;border-bottom:1px solid rgba(255,255,255,0.12);margin-bottom:10px}
 .brand b{display:block;font-size:16px;color:#FFFFFF}
 .brand span{font-size:12px;color:#A99BD0}
@@ -30,6 +30,8 @@ a.sub{padding-left:48px;font-size:12.5px;color:#CFC6E6}
 main{flex-grow:1;height:100%;display:flex;flex-direction:column;min-width:0}
 .bar{height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#FFFFFF;border-bottom:1px solid #E4DFEE;font-size:13px;color:#574F6B}
 .bar b{color:#1F1535}
+body.fold aside{margin-left:-270px}
+#fold{display:inline;flex-grow:0;margin-right:10px;padding:3px 9px;border:1px solid #DDD2F7;border-radius:6px;background:#FFFFFF;color:#5B21B6;font-size:12px;cursor:pointer;font-family:inherit}
 .bar a{display:inline;flex-grow:0;padding:4px 10px;color:#5B21B6;border:1px solid #DDD2F7;border-radius:6px;font-size:12px}
 iframe{flex-grow:1;width:100%;border:0;background:#FFFFFF}
 </style>
@@ -39,7 +41,9 @@ iframe{flex-grow:1;width:100%;border:0;background:#FFFFFF}
 <div class="brand"><b>APP下载奖励活动</b><span>789Bingo · 前台原型 / 后台原型 / PRD v1.0</span></div>
 <div class="sec"><div class="head" onclick="ts(this)"><span class="tog">▸</span>前台原型</div><div class="body">
 <a class="top" href="pages/frontend.dc.html" data-k="fe/frontend">交互原型（H5 + APP + 演示控制台）</a>
-<div class="grp"><div class="row"><span class="tog" onclick="tg(this)">▸</span><a href="pages/state-sidebar-entry.dc.html" data-k="fe/state-sidebar-entry" style="padding-left:10px">状态说明稿</a></div><div class="kids"><a class="sub" href="pages/state-sidebar-entry.dc.html" data-k="fe/state-sidebar-entry">侧边菜单入口三态</a><a class="sub" href="pages/state-popup-inprogress.dc.html" data-k="fe/state-popup-inprogress">领取弹窗 · In Progress</a><a class="sub" href="pages/state-popup-claim.dc.html" data-k="fe/state-popup-claim">领取弹窗 · Claim</a><a class="sub" href="pages/state-popup-claimed.dc.html" data-k="fe/state-popup-claimed">领取弹窗 · Claimed</a><a class="sub" href="pages/state-claim-loading.dc.html" data-k="fe/state-claim-loading">领取 · Loading 动效</a><a class="sub" href="pages/state-claim-success.dc.html" data-k="fe/state-claim-success">领取 · 成功动效</a><a class="sub" href="pages/state-claim-failed.dc.html" data-k="fe/state-claim-failed">领取 · 发奖失败</a></div></div>
+<a class="top" href="pages/sidebar-entry.dc.html" data-k="fe/sidebar-entry">侧边菜单入口三态</a>
+<a class="top" href="pages/popups.html" data-k="fe/popups">领取弹窗三态</a>
+<a class="top" href="pages/claim-anim.html" data-k="fe/claim-anim">领取动效（Loading / 成功 / 失败）</a>
 </div></div>
 <div class="sec"><div class="head" onclick="ts(this)"><span class="tog">▸</span>后台原型</div><div class="body">
 <a class="top" href="pages/admin.dc.html" data-k="ad/admin">活动中心 › APP下载奖励活动（交互）</a>
@@ -50,7 +54,7 @@ iframe{flex-grow:1;width:100%;border:0;background:#FFFFFF}
 </div></div>
 </aside>
 <main>
-<div class="bar"><span id="crumb"><b>前台原型</b> · 交互原型</span><a id="newtab" href="pages/frontend.dc.html" target="_blank" rel="noopener">在新标签页打开</a></div>
+<div class="bar"><span><button id="fold" type="button" onclick="document.body.classList.toggle('fold');this.textContent=document.body.classList.contains('fold')?'展开目录':'收起目录'">收起目录</button><span id="crumb"><b>前台原型</b> · 交互原型</span></span><a id="newtab" href="pages/frontend.dc.html" target="_blank" rel="noopener">在新标签页打开</a></div>
 <iframe id="viewer" name="viewer" title="内容" src="pages/frontend.dc.html"></iframe>
 </main>
 <script>
@@ -76,6 +80,7 @@ function ts(el){el.parentElement.classList.toggle('closed');}
 const k=decodeURIComponent(location.hash.slice(1));
 const start=links.find(a=>a.dataset.k===k)||links[0];
 activate(start,false);
+window.addEventListener('hashchange',()=>{const kk=decodeURIComponent(location.hash.slice(1));const aa=links.find(x=>x.dataset.k===kk);if(aa&&!aa.classList.contains('active'))activate(aa,false);});
 </script>
 </body>
 </html>
