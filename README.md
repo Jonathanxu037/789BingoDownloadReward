@@ -14,6 +14,7 @@ pages/
   popup-*.dc.html、claim-*.dc.html  整合页引用的单张状态稿
   admin.dc.html       后台交互原型（活动中心 › APP下载奖励活动）
   prd.html            PRD 需求文档（单页，含章节锚点）
+  checklist.html      功能自查清单（设计 / 开发 / 测试，可勾选，查看PRD 可定位并荧光标出相关内容）
   support.js          原型运行时（含 React，无需联网加载）
 assets/               原型使用的图片素材
 .nojekyll             关闭 Jekyll 处理

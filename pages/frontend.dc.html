@@ -219,27 +219,34 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 </sc-if>
 
 <sc-if value="{{ h5Popup }}" hint-placeholder-val="{{ true }}">
-<button type="button" aria-label="Close" onClick="{{ closeH5Popup }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; background: rgba(15,8,32,0.6); cursor: pointer"></button>
-<div class="sheet" style="position: absolute; left: 0; bottom: 0; width: 384px; height: 265px; border-radius: 12px 12px 0 0; overflow: hidden">
-<img src="../assets/869175184c616ba54a0d1a615400f941.png" alt="Download the APP, Get ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 265px">
+<div class="sheet" style="position: absolute; left: 0; bottom: 0; width: 384px; height: {{ sheetH }}px; border-radius: 12px 12px 0 0; overflow: hidden; box-shadow: 0 -6px 24px rgba(31,21,53,0.28)">
+<div style="position: absolute; left: 0; top: 0; width: 384px; height: 170px; overflow: hidden"><img src="../assets/869175184c616ba54a0d1a615400f941.png" alt="Download the APP, Get ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 265px"></div>
+<button type="button" aria-label="View APP Download Reward" onClick="{{ openH5DlPageFromSheet }}" style="position: absolute; left: 0; top: 0; width: 384px; height: 170px; border: none; background: transparent; cursor: pointer"></button>
 <button type="button" aria-label="Close" onClick="{{ closeH5Popup }}" style="position: absolute; left: 340px; top: 0; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
-<button type="button" aria-label="Android APP" onClick="{{ getAndroid }}" style="position: absolute; left: 25px; top: 173px; width: 162px; height: 42px; border: none; border-radius: 21px; background: transparent; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.85); cursor: pointer"></button>
-<button type="button" aria-label="iPhone APP" onClick="{{ getIos }}" style="position: absolute; left: 198px; top: 173px; width: 162px; height: 42px; border: none; border-radius: 21px; background: transparent; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.85); cursor: pointer"></button>
-<div style="position: absolute; left: 8px; top: 219px; width: 214px; min-height: 22px; box-sizing: border-box; padding: 2px 8px; border-radius: 8px; background: rgba(58,10,38,0.45); display: flex; align-items: center; gap: 5px; color: #FFFFFF; font-size: 10px; font-weight: 700; line-height: 1.25"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Only deposits and bets made in the APP are counted.</div>
-<sc-if value="{{ h5Logged }}" hint-placeholder-val="{{ false }}"><div style="position: absolute; left: 0; top: 219px; width: 384px; box-sizing: border-box; padding-right: 6px; display: flex; justify-content: flex-end"><label style="height: 22px; box-sizing: border-box; padding: 0 8px; border-radius: 999px; background: rgba(58,10,38,0.45); display: flex; align-items: center; gap: 5px; color: #FFFFFF; font-size: 11px; font-weight: 700; white-space: nowrap; cursor: pointer"><input type="checkbox" checked="{{ dontShow }}" onChange="{{ toggleDontShow }}" style="width: 12px; height: 12px; margin: 0; accent-color: #F5B400; cursor: pointer">Don&#39;t show again today</label></div></sc-if>
+<div style="position: absolute; left: 0; top: 156px; width: 384px; bottom: 0; box-sizing: border-box; padding: 10px 16px 12px; background: linear-gradient(180deg, rgba(122,13,46,0) 0px, #7A0D2E 10px, #5A0A22 100%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.45)"><div style="max-width: 330px; color: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 16px; text-align: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFD54A" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="display: inline-block; vertical-align: -2px; margin-right: 5px"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Deposits, bets and reward claims must all be completed in the 789Bingo APP.<button type="button" onClick="{{ openH5Rules }}" style="display: inline; margin-left: 4px; padding: 0; border: none; background: transparent; color: #FFD54A; font-family: inherit; font-size: inherit; font-weight: 800; text-decoration: underline; cursor: pointer">Activity Rules ›</button></div><button type="button" onClick="{{ openH5DlPageFromSheet }}" style="height: 26px; padding: 0 16px; border: none; border-radius: 999px; background: linear-gradient(180deg, #FFD54A, #F5A500); color: #4A1500; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer">View Details ›</button><sc-if value="{{ h5Logged }}" hint-placeholder-val="{{ false }}"><label style="margin-top: 2px; height: 22px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); display: flex; align-items: center; gap: 6px; color: #FFFFFF; font-size: 11px; font-weight: 700; white-space: nowrap; cursor: pointer"><input type="checkbox" checked="{{ dontShow }}" onChange="{{ toggleDontShow }}" style="width: 12px; height: 12px; margin: 0; accent-color: #F5B400; cursor: pointer">Don&#39;t show again today</label></sc-if></div>
 </div>
 </sc-if>
 
 <sc-if value="{{ h5DlPage }}" hint-placeholder-val="{{ false }}">
-<div style="position: absolute; inset: 0; background: #F8C4B2">
-<img src="../assets/3f7fe52f5035094d534919eaa482ffb4.png" alt="APP 下载页：Download the APP Get ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 927px">
+<div class="dlscroll" style="position: absolute; inset: 0; background: #F8C4B2; overflow-y: auto; overflow-x: hidden">
+<div style="position: relative; width: 384px; height: 983px; background: #F8C4B2">
+<div style="position: absolute; left: 0; top: 0; width: 384px; height: 836px; overflow: hidden"><img src="../assets/3f7fe52f5035094d534919eaa482ffb4.png" alt="APP 下载页：Download the APP Get ₱188" style="position: absolute; left: 0; top: 0; width: 384px; height: 927px"></div>
+<div style="position: absolute; left: 0; top: 836px; width: 384px; height: 56px; background: #FBCDBD"></div>
+<div style="position: absolute; left: 0; top: 892px; width: 384px; height: 91px; overflow: hidden"><img src="../assets/3f7fe52f5035094d534919eaa482ffb4.png" alt="" style="position: absolute; left: 0; top: -836px; width: 384px; height: 927px"></div>
+
 <button type="button" aria-label="Back" onClick="{{ closeH5DlPage }}" style="position: absolute; left: 8px; top: 8px; width: 44px; height: 44px; border: none; border-radius: 999px; background: rgba(255,255,255,0.75); color: #1F1535; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
 <button type="button" aria-label="Download Now" onClick="{{ getAuto }}" style="position: absolute; left: 31px; top: 709px; width: 323px; height: 63px; border: none; border-radius: 32px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.7); cursor: pointer"></button>
 <button type="button" aria-label="Get it on Google Play" onClick="{{ getAndroid }}" style="position: absolute; left: 50px; top: 785px; width: 134px; height: 41px; border: none; border-radius: 6px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.7); cursor: pointer"></button>
 <button type="button" aria-label="Download on the App Store" onClick="{{ getIos }}" style="position: absolute; left: 201px; top: 785px; width: 134px; height: 41px; border: none; border-radius: 6px; background: transparent; box-shadow: inset 0 0 0 2px rgba(109,40,217,0.7); cursor: pointer"></button>
-<div style="position: absolute; left: 0; top: 828px; width: 384px; display: flex; justify-content: center"><div style="display: inline-flex; align-items: center; gap: 5px; padding: 2px 10px; border-radius: 999px; background: rgba(91,33,182,0.82); color: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 16px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Only deposits and bets made in the APP are counted.</div></div>
+<div style="position: absolute; left: 0; top: 842px; width: 384px; display: flex; justify-content: center"><div style="display: inline-flex; align-items: center; gap: 5px; max-width: 360px; box-sizing: border-box; padding: 3px 10px; border-radius: 12px; background: rgba(91,33,182,0.86); color: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 15px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg><span>Deposits, bets and reward claims must all be completed in the 789Bingo APP.<button type="button" onClick="{{ openH5Rules }}" style="display: inline; margin-left: 4px; padding: 0; border: none; background: transparent; color: #FFD54A; font-family: inherit; font-size: inherit; font-weight: 800; text-decoration: underline; cursor: pointer">Activity Rules ›</button></span></div></div>
+</div>
 </div>
 </sc-if>
+<sc-if value="{{ h5RulesOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.72)"></div>
+<div style="position: absolute; left: 22px; top: 170px; width: 340px; box-sizing: border-box; padding: 18px 16px 16px; border-radius: 20px; background: #FDF3E2; border: 3px solid #F1B23F; box-shadow: 0 20px 50px rgba(0,0,0,0.45); display: flex; flex-direction: column; gap: 8px"><div style="text-align: center; font-size: 17px; font-weight: 800; color: #2B0F5C">Activity Rules</div><div style="max-height: 470px; overflow-y: auto; display: flex; flex-direction: column; gap: 7px"><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">1.</span><span>Log in to the official 789Bingo APP (Android / iPhone) during the promotion period.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">2.</span><span>Complete KYC verification.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">3.</span><span>Deposit a total of at least ₱1,000 in the APP.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">4.</span><span>Place a total of at least ₱5,000 in valid bets on Slot games in the APP.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">5.</span><span>When all conditions are met, claim ₱188 in the APP reward pop-up.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">6.</span><span>Only deposits and bets made in the APP count. Deposits and bets on H5, PWA or PC do not count.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">7.</span><span>Each user can claim this reward only once. Accounts linked by KYC, phone number or device are treated as the same user.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">8.</span><span>789Bingo reserves the right of final interpretation of this promotion.</span></div></div><button type="button" onClick="{{ closeH5Rules }}" style="margin-top: 4px; height: 44px; border: none; border-radius: 14px; background: linear-gradient(180deg, #A93BE8, #7B22C9); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 800; cursor: pointer">OK</button></div>
+</sc-if>
+
 
 <sc-if value="{{ h5Toast }}" hint-placeholder-val="{{ false }}">
 <div class="pop" style="position: absolute; left: 62px; top: 420px; width: 260px; padding: 14px 16px; border-radius: 12px; background: rgba(31,21,53,0.92); color: #FFFFFF; font-family: 'Noto Sans SC', sans-serif; font-size: 14px; text-align: center">{{ h5ToastText }}</div>
@@ -280,6 +287,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <div style="position: absolute; left: 3px; top: 60px; width: 338px; height: 52px; border-radius: 8px; overflow: hidden"><div class="bn-shine"></div></div>
 <svg class="tw " width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 316px; top: 66px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
 <svg class="tw tw2" width="9" height="9" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 352px; top: 84px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
+<div style="position: absolute; left: 123px; top: 89px; font-size: 12.5px; font-weight: 800; color: #FFFFFF; white-space: nowrap; text-shadow: 0 0 2px #3B0764, 0 1px 2px #3B0764">Deposit ₱1,000 · Slot ₱5,000</div>
 <button type="button" aria-label="Open APP Download Reward" onClick="{{ goAppLogin }}" style="position: absolute; left: 0; top: 58px; width: 340px; height: 56px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
 <button type="button" aria-label="Close banner" onClick="{{ closeBanner }}" style="position: absolute; left: 344px; top: 40px; width: 40px; height: 44px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
 </div>
@@ -321,7 +329,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <div style="position: absolute; left: 3px; top: 60px; width: 338px; height: 52px; border-radius: 8px; overflow: hidden"><div class="bn-shine"></div></div>
 <svg class="tw " width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 316px; top: 66px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
 <svg class="tw tw2" width="9" height="9" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 352px; top: 84px"><path d="M12 0C12.8 7.5 16.5 11.2 24 12C16.5 12.8 12.8 16.5 12 24C11.2 16.5 7.5 12.8 0 12C7.5 11.2 11.2 7.5 12 0Z" fill="#FFF6D6"></path></svg>
-<div style="position: absolute; left: 123px; top: 89px; font-size: 13px; font-weight: 800; color: #FFFFFF; white-space: nowrap; text-shadow: 0 0 2px #3B0764, 0 1px 2px #3B0764">Deposit {{ depShort }} · {{ bannerBet }}</div>
+<div style="position: absolute; left: 123px; top: 89px; font-size: 12.5px; font-weight: 800; color: #FFFFFF; white-space: nowrap; text-shadow: 0 0 2px #3B0764, 0 1px 2px #3B0764">Deposit ₱1,000 · Slot ₱5,000</div>
 <button type="button" aria-label="Open APP Download Reward" onClick="{{ openClaimFromBanner }}" style="position: absolute; left: 0; top: 58px; width: 340px; height: 56px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
 <button type="button" aria-label="Close banner" onClick="{{ closeBanner }}" style="position: absolute; left: 344px; top: 40px; width: 40px; height: 44px; border: none; background: transparent; cursor: pointer; pointer-events: auto"></button>
 </div>
@@ -342,6 +350,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <div class="pop" style="position: absolute; left: 22px; top: 150px; width: 340px">
 <div style="position: relative; margin: 158px 0 0 5px; width: 330px; box-sizing: border-box; background: #FDF3E2; border: 3px solid #F1B23F; border-radius: 22px; padding: 18px 10px 12px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.45)">
 <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 14px; background: #FFF9F0; border: 1px solid #F3DCC0"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">APP Login</span><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></div>
+<div style="display: flex; align-items: center; justify-content: space-between; height: 44px; box-sizing: border-box; padding: 0 12px; border-radius: 14px; background: #FFF9F0; border: 1px solid #F3DCC0"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">KYC Verification</span><sc-if value="{{ kycDone }}" hint-placeholder-val="{{ false }}"><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></sc-if><sc-if value="{{ kycTodo }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ goKyc }}" style="flex-shrink: 0; height: 30px; padding: 0 12px; border: none; border-radius: 999px; background: #9D1FC8; color: #FFFFFF; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap">Verify Now</button></sc-if></div>
 <div style="display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: 14px; background: #FFF9F0; border: 1px solid #F3DCC0">
 <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">APP Deposit</span><span style="font-weight: 800; font-size: 13px; color: #2B0F5C">{{ depText }} <span style="color: #6A5A86">/ ₱1,000</span></span></div>
 <div style="display: flex; align-items: center; gap: 8px; min-height: 30px"><div style="flex-grow: 1; height: 10px; border-radius: 999px; background: #E6D9EE; overflow: hidden"><div style="height: 10px; width: {{ depPct }}%; border-radius: 999px; background: {{ depBar }}"></div></div><sc-if value="{{ depTodo }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ goDeposit }}" style="flex-shrink: 0; height: 30px; padding: 0 12px; border: none; border-radius: 999px; background: #9D1FC8; color: #FFFFFF; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap">Deposit</button></sc-if><sc-if value="{{ depDone }}" hint-placeholder-val="{{ false }}"><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></sc-if></div>
@@ -350,7 +359,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-weight: 800; font-size: 14px; color: #2B0F5C">{{ b.label }}</span><span style="font-weight: 800; font-size: 13px; color: #2B0F5C">{{ b.text }} <span style="color: #6A5A86">/ {{ b.target }}</span></span></div>
 <div style="display: flex; align-items: center; gap: 8px; min-height: 30px"><div style="flex-grow: 1; height: 10px; border-radius: 999px; background: #E6D9EE; overflow: hidden"><div style="height: 10px; width: {{ b.pct }}%; border-radius: 999px; background: {{ b.bar }}"></div></div><sc-if value="{{ b.todo }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ b.go }}" style="flex-shrink: 0; height: 30px; padding: 0 12px; border: none; border-radius: 999px; background: #9D1FC8; color: #FFFFFF; font-family: inherit; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap">{{ b.btn }}</button></sc-if><sc-if value="{{ b.done }}" hint-placeholder-val="{{ false }}"><span style="flex-shrink: 0; height: 26px; box-sizing: border-box; padding: 0 10px; border-radius: 999px; background: #DDF5E3; border: 1px solid #A9DDB8; color: #17703A; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Completed</span></sc-if></div>
 </div></sc-for>
-<sc-if value="{{ btnProgress }}" hint-placeholder-val="{{ true }}"><div style="display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 10px; background: #F3EDFF; color: #5B21B6; font-size: 12px; font-weight: 700; line-height: 1.35"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg>Only deposits and bets made in the APP are counted.</div></sc-if>
+<div style="display: flex; align-items: flex-start; gap: 6px; padding: 7px 10px; border-radius: 10px; background: #F3EDFF; color: #5B21B6; font-size: 12px; font-weight: 700; line-height: 1.35"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.01"></path></svg><span>Deposits, bets and reward claims must all be completed in the 789Bingo APP.<button type="button" onClick="{{ openRules }}" style="display: inline; margin-left: 4px; padding: 0; border: none; background: transparent; color: #7B22C9; font-family: inherit; font-size: inherit; font-weight: 800; text-decoration: underline; cursor: pointer">Activity Rules ›</button></span></div>
 <div style="display: flex; align-items: center; justify-content: space-between; height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; background: linear-gradient(180deg, #FFF3CC, #FFD978); border: 2px solid #F2B33D">
 <span style="font-weight: 800; font-size: 17px; color: #2B0F5C">Reward</span>
 <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: #C8160E; text-shadow: 0 1px 0 #FFE7A0">₱188</span>
@@ -358,10 +367,16 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <sc-if value="{{ btnProgress }}" hint-placeholder-val="{{ true }}"><button type="button" disabled="disabled" style="width: 100%; height: 48px; border-radius: 14px; font-family: inherit; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid #B9ADCB; background: #D3C9DE; color: #5A4A74">In Progress</button></sc-if>
 <sc-if value="{{ btnClaim }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ doClaim }}" style="width: 100%; height: 48px; border-radius: 14px; font-family: inherit; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid #F6C04A; background: linear-gradient(180deg, #FF8A1F, #E0441B); color: #FFFFFF; cursor: pointer">Claim ₱188</button></sc-if>
 <sc-if value="{{ btnClaimed }}" hint-placeholder-val="{{ false }}"><button type="button" disabled="disabled" style="width: 100%; height: 48px; border-radius: 14px; font-family: inherit; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid #A9DDB8; background: #DDF5E3; color: #17703A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Claimed</button></sc-if>
+<div style="text-align: center; font-size: 10.5px; line-height: 14px; color: #8A7AA6">789Bingo reserves the right of final interpretation of this promotion.</div>
 </div>
 <img src="../assets/872a0a1f08350849dd39d9010c584110.png" alt="Download APP Get ₱188 · APP REWARD" style="position: absolute; left: -5px; top: 0; width: 349px; height: 166px; pointer-events: none">
 <button type="button" aria-label="Close" onClick="{{ closeClaimPopup }}" style="position: absolute; left: 297px; top: 3px; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer"></button>
 </div>
+</sc-if>
+
+<sc-if value="{{ rulesOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(15,8,32,0.72)"></div>
+<div style="position: absolute; left: 22px; top: 170px; width: 340px; box-sizing: border-box; padding: 18px 16px 16px; border-radius: 20px; background: #FDF3E2; border: 3px solid #F1B23F; box-shadow: 0 20px 50px rgba(0,0,0,0.45); display: flex; flex-direction: column; gap: 8px"><div style="text-align: center; font-size: 17px; font-weight: 800; color: #2B0F5C">Activity Rules</div><div style="max-height: 470px; overflow-y: auto; display: flex; flex-direction: column; gap: 7px"><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">1.</span><span>Log in to the official 789Bingo APP (Android / iPhone) during the promotion period.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">2.</span><span>Complete KYC verification.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">3.</span><span>Deposit a total of at least ₱1,000 in the APP.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">4.</span><span>Place a total of at least ₱5,000 in valid bets on Slot games in the APP.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">5.</span><span>When all conditions are met, claim ₱188 in the APP reward pop-up.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">6.</span><span>Only deposits and bets made in the APP count. Deposits and bets on H5, PWA or PC do not count.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">7.</span><span>Each user can claim this reward only once. Accounts linked by KYC, phone number or device are treated as the same user.</span></div><div style="display: flex; gap: 8px; font-size: 12px; line-height: 17px; color: #3E3851"><span style="flex-shrink: 0; width: 16px; font-weight: 800; color: #7B22C9">8.</span><span>789Bingo reserves the right of final interpretation of this promotion.</span></div></div><button type="button" onClick="{{ closeRules }}" style="margin-top: 4px; height: 44px; border: none; border-radius: 14px; background: linear-gradient(180deg, #A93BE8, #7B22C9); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 800; cursor: pointer">OK</button></div>
 </sc-if>
 
 <sc-if value="{{ appToast }}" hint-placeholder-val="{{ false }}">
@@ -430,8 +445,9 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <span style="color: #574F6B">H5 底部引导</span><span style="font-weight: 700">{{ sGuide }}</span>
 <span style="color: #574F6B">APP 安装</span><span style="font-weight: 700">{{ sInstalled }}</span>
 <span style="color: #574F6B">APP Login</span><span style="font-weight: 700">{{ sLogin }}</span>
+<span style="color: #574F6B">KYC 认证</span><span style="font-weight: 700">{{ sKyc }}</span>
 <span style="color: #574F6B">APP Deposit</span><span style="font-weight: 700">{{ depText }} / ₱1,000</span>
-<span style="color: #574F6B">APP Valid Bet · Slot</span><span style="font-weight: 700">{{ betText }} / ₱5,000</span>
+<span style="color: #574F6B">APP Slot Valid Bet</span><span style="font-weight: 700">{{ betText }} / ₱5,000</span>
 <span style="color: #574F6B">按钮状态</span><span style="font-weight: 700">{{ sBtn }}</span>
 <span style="color: #574F6B">奖励流水</span><span style="font-weight: 700">{{ sTurnover }}</span>
 <span style="color: #574F6B">领取拦截</span><span style="font-weight: 700">{{ sBlock }}</span>
@@ -440,13 +456,14 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <div style="background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #DDD5EC">
 <div style="font-size: 15px; font-weight: 700">登录 / 访问模拟（登录时判断是否已领取）</div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
-<button type="button" onClick="{{ h5GuestVisit }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 访客进首页</button><button type="button" onClick="{{ h5FirstLogin }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: none; background: #6D28D9; color: #FFFFFF">H5 当日首次登录</button><button type="button" onClick="{{ h5SameDayLogin }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 同日再次登录</button>
+<button type="button" onClick="{{ h5GuestVisit }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 访客进首页</button><button type="button" onClick="{{ h5FirstLogin }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: none; background: #6D28D9; color: #FFFFFF">H5 当日首次登录</button><button type="button" onClick="{{ h5SameDayLogin }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 同日再次进首页</button>
 <button type="button" onClick="{{ h5Logout }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">H5 退出登录</button><button type="button" onClick="{{ appHome }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">APP 再次进首页</button><button type="button" onClick="{{ appUninstall }}" style="min-height: 40px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid #B9A8E6; background: #FFFFFF; color: #4C1D95">模拟卸载 APP</button>
 </div>
 </div>
 <div style="background: #FFFFFF; border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #DDD5EC">
 <div style="font-size: 15px; font-weight: 700">计入活动进度</div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<button type="button" onClick="{{ kycPass }}" style="min-height: 44px; border: none; border-radius: 10px; background: #6D28D9; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">KYC 认证通过</button>
 <button type="button" onClick="{{ appDeposit }}" style="min-height: 44px; border: none; border-radius: 10px; background: #6D28D9; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 内充值成功 +₱500</button>
 <button type="button" onClick="{{ appSlotBet }}" style="min-height: 44px; border: none; border-radius: 10px; background: #6D28D9; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 内 Slot 有效投注 +₱2,500</button>
 </div>
@@ -456,6 +473,7 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <button type="button" onClick="{{ h5SlotBet }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">H5 端 Slot 投注 +₱2,500</button>
 <button type="button" onClick="{{ appCasinoBet }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 内 Casino 投注 +₱2,500</button>
 <button type="button" onClick="{{ appRefund }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 充值退款 −₱500</button>
+<button type="button" onClick="{{ appBetRollback }}" style="min-height: 44px; border: 1px solid #B9A8E6; border-radius: 10px; background: #FFFFFF; color: #4C1D95; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">APP 注单回滚 −₱2,500</button>
 </div>
 <div style="display: flex; gap: 10px; padding-top: 6px">
 <button type="button" onClick="{{ cycleBlock }}" style="flex-grow: 1; min-height: 44px; border: 1px solid #CFC8DD; border-radius: 10px; background: {{ blockBg }}; color: #1F1535; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">切换领取拦截</button>
@@ -475,13 +493,13 @@ a{color:#6D28D9}a:hover{color:#4C1D95}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1560,"height":1420}}'>
 class Component extends DCLogic {
   init() {
-    return { betCfg: 'slot', cbet: 0, installed: false, platform: '', loggedIn: false, appAtLogin: false, dep: 0, bet: 0, balance: 0, shown: null,
+    return { h5RulesOpen: false, rulesOpen: false, kycDone: false, betCfg: 'slot', cbet: 0, installed: false, platform: '', loggedIn: false, appAtLogin: false, dep: 0, bet: 0, balance: 0, shown: null,
       claimed: false, failNext: false, blockIdx: 0, phase: 'idle', h5Drawer: false, h5Popup: true, h5DlPage: false, h5Toast: '',
       h5Logged: false, h5Claimed: false, dontShow: false, h5Suppress: false,
       appDrawer: false, claimPopup: false, bump: false, bannerClosed: false, appToast: '', loginRecorded: false,
       logs: [{ n: 1, t: 'H5：访客访问首页 → 每次都自动弹出底部下载引导（访客无“今日不再显示”选项）' }] };
   }
-  blocks() { return ['无', 'KYC 要求不满足', '防重复命中（同 KYC / 手机号 / 设备已领取）', '风控拦截', '账号冻结或停用', '活动预算已耗尽']; }
+  blocks() { return ['无', 'KYC 要求不满足', '防重复命中（同 KYC / 手机号 / 设备已领取）', '风控拦截', '账号状态受限（冻结 / 停用 / 注销 / 禁止投注 / 临时冻结 / 自我限制）', '活动预算已耗尽']; }
   s() { return Object.assign(this.init(), this.state || {}); }
   log(t) { const s = this.s(); const n = (s.logs[0] && s.logs[0].n ? s.logs[0].n : s.logs.length) + 1; this.setState({ logs: [{ t: t, n: n }].concat(s.logs).slice(0, 500) }); }
   later(fn, ms) { this._t = this._t || []; this._t.push(setTimeout(fn, ms)); }
@@ -493,7 +511,7 @@ class Component extends DCLogic {
   betCfgs() { return ['slot', 'slotcasino', 'all']; }
   betCfgName(c) { return { slot: '仅 Slot（默认）', slotcasino: 'Slot + Casino', all: '全部游戏' }[c]; }
   betsOk(s) { if (s.betCfg === 'all') return s.bet + s.cbet >= 5000; if (s.betCfg === 'slotcasino') return s.bet >= 5000 && s.cbet >= 5000; return s.bet >= 5000; }
-  eligible(s) { return s.loginRecorded && s.dep >= 1000 && this.betsOk(s) && !s.claimed; }
+  eligible(s) { return s.loginRecorded && s.kycDone && s.dep >= 1000 && this.betsOk(s) && !s.claimed; }
   closeSheet(c) {
     const upd = { h5Popup: false };
     if (c.h5Logged && c.dontShow) upd.h5Suppress = true;
@@ -552,10 +570,10 @@ class Component extends DCLogic {
     const base = { h5Logged: true, h5Claimed: c.claimed, h5Drawer: false, h5DlPage: false };
     if (kind === 'newday') base.h5Suppress = false;
     const suppress = kind === 'newday' ? false : c.h5Suppress;
-    if (c.claimed) { this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：' + (kind === 'newday' ? '当日首次登录' : '同日再次登录') + ' → 已领取 → 不弹底部引导，隐藏右侧活动图标，左侧 App Download 无 Get 图标（点击仍进全屏海报）'); return; }
+    if (c.claimed) { this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：' + (kind === 'newday' ? '当日首次登录' : '同日再次进入首页') + ' → 已领取 → 不弹底部引导，隐藏右侧活动图标，左侧 App Download 无 Get 图标（点击仍进全屏海报）'); return; }
     if (kind === 'newday') { this.setState(Object.assign(base, { h5Popup: true, dontShow: false })); this.log('H5：当日首次登录 → 未领取 → 底部自动弹出下载引导（可勾选今日不再显示）'); return; }
-    if (suppress) { this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：同日再次登录 → 当前设备今日已勾选不再显示 → 不弹出，只显示右侧图标与左侧 Get ₱188'); return; }
-    this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：同日再次登录 → 非当日首次登录 → 不弹出，只显示右侧图标与左侧 Get ₱188');
+    if (suppress) { this.setState(Object.assign(base, { h5Popup: false })); this.log('H5：同日再次进入首页 → 当前设备今日已勾选不再显示 → 不弹出，只显示右侧图标与左侧 Get ₱188'); return; }
+    this.setState(Object.assign(base, { h5Popup: true })); this.log('H5：同日再次进入首页 → 当前设备今日未勾选“今日不再显示” → 底部下载引导再次自动弹出');
   }
   renderVals() {
     const s = this.s();
@@ -566,16 +584,18 @@ class Component extends DCLogic {
     const mk = (label, val, btnTxt, go) => { const pct = Math.min(100, val / 5000 * 100); const done = val >= 5000; return { label: label, text: this.money(Math.min(val, 5000)), target: '₱5,000', pct: pct, bar: done ? '#22A15A' : 'linear-gradient(90deg, #E73FB2, #FF6B3D, #FFB627)', todo: !done, done: done, btn: btnTxt, go: go }; };
     const goBet = (txt) => () => { this.setState({ claimPopup: false }); this.appToastShow('→ ' + txt); this.log('APP：点击投注按钮 → ' + txt); };
     const betRows = s.betCfg === 'all' ? [mk('APP Valid Bet', s.bet + s.cbet, 'Play', goBet('跳转游戏大厅（原型示意）'))]
-      : (s.betCfg === 'slotcasino' ? [mk('APP Valid Bet · Slot', s.bet, 'Play Slot', goBet('跳转 Slot 游戏列表（原型示意）')), mk('APP Valid Bet · Casino', s.cbet, 'Play Casino', goBet('跳转 Casino 游戏列表（原型示意）'))]
-      : [mk('APP Valid Bet · Slot', s.bet, 'Play Slot', goBet('跳转 Slot 游戏列表（原型示意）'))]);
+      : (s.betCfg === 'slotcasino' ? [mk('APP Slot Valid Bet', s.bet, 'Play Slot', goBet('跳转 Slot 游戏列表（原型示意）')), mk('APP Valid Bet · Casino', s.cbet, 'Play Casino', goBet('跳转 Casino 游戏列表（原型示意）'))]
+      : [mk('APP Slot Valid Bet', s.bet, 'Play Slot', goBet('跳转 Slot 游戏列表（原型示意）'))]);
     const bannerBet = s.betCfg === 'all' ? ('Valid Bet ₱' + Math.min(s.bet + s.cbet, 5000).toLocaleString('en-US') + '/5,000') : (s.betCfg === 'slotcasino' ? ('Bets ' + betRows.filter(r => r.done).length + '/' + betRows.length + ' done') : ('Slot ₱' + Math.min(s.bet, 5000).toLocaleString('en-US') + '/5,000'));
     const h5Hide = s.h5Logged && s.h5Claimed;
     return {
-      betRows: betRows, bannerBet: bannerBet,
+      betRows: betRows, bannerBet: bannerBet, rulesOpen: s.rulesOpen, openRules: () => { this.setState({ rulesOpen: true }); this.log('APP：点击领取弹窗提示中的 Activity Rules → 打开活动规则弹窗'); }, closeRules: () => this.setState({ rulesOpen: false }), h5RulesOpen: s.h5RulesOpen, openH5Rules: () => { this.setState({ h5RulesOpen: true }); this.log('H5：点击提示中的 Activity Rules → 打开活动规则弹窗'); }, closeH5Rules: () => this.setState({ h5RulesOpen: false }), kycDone: s.kycDone, kycTodo: !s.kycDone, sKyc: s.kycDone ? '已认证' : '未认证',
+      goKyc: () => { this.setState({ claimPopup: false }); this.appToastShow('→ 跳转 KYC 认证页（原型示意）'); this.log('APP：领取弹窗点击 Verify Now → 跳转 KYC 认证页'); },
+      kycPass: () => { const c = this.s(); if (c.kycDone) { this.log('提示：KYC 已认证'); return; } this.setState({ kycDone: true }); this.log('KYC 认证通过 → 领取弹窗 KYC Verification 显示 Completed'); },
       balText: this.num(s.balance), appBalText: this.num(shownBal),
       pillBg: s.bump ? '#FFE8A3' : '#F3F3F6', pillClass: s.bump ? 'bump' : '',
       h5Drawer: s.h5Drawer, h5Popup: s.h5Popup, h5DlPage: s.h5DlPage, h5Toast: !!s.h5Toast, h5ToastText: s.h5Toast,
-      h5Logged: s.h5Logged, h5Guest: !s.h5Logged,
+      h5Logged: s.h5Logged, h5Guest: !s.h5Logged, sheetH: s.h5Logged ? 272 : 246,
       notInstalled: !s.installed, appGuest: s.installed && !s.loggedIn && !s.appAtLogin, appLoginPage: s.installed && !s.loggedIn && s.appAtLogin,
       loggedIn: s.loggedIn, showGuestBanner: s.installed && !s.loggedIn && !s.appAtLogin && !s.bannerClosed,
       appDrawer: s.appDrawer, claimPopup: s.claimPopup, eligible: elig, claimed: s.claimed,
@@ -586,7 +606,7 @@ class Component extends DCLogic {
       showPopup: s.claimPopup && s.phase !== 'fail' && s.phase !== 'block',
       h5ShowDlTag: !h5Hide, dontShow: s.dontShow,
       sH5: s.h5Logged ? (s.h5Claimed ? '已登录 · 已领取' : '已登录 · 未领取') : '访客（未登录）',
-      sGuide: !s.h5Logged ? '访客：每次进入首页都弹出' : (h5Hide ? '已领取：不显示' : (s.h5Suppress ? '今日不再显示（当前设备）' : '当日首次登录自动弹出')),
+      sGuide: !s.h5Logged ? '访客：每次进入首页都弹出' : (h5Hide ? '已领取：不显示' : (s.h5Suppress ? '今日不再显示（当前设备）' : '未勾选：每次进入首页都弹出')),
       sBlock: this.blocks()[s.blockIdx],
       blockTitle: ({ 1: 'Please complete KYC verification to claim this reward.', 2: 'This reward has already been claimed by a linked account.', 3: 'Unable to claim at this time. Please contact Customer Service.', 4: 'Unable to claim at this time. Please contact Customer Service.', 5: 'Sorry, the promotion has ended…' })[s.blockIdx] || '', blockReason: '拦截原因（演示）：' + this.blocks()[s.blockIdx], blockBtn: s.blockIdx === 1 ? 'Verify Now' : 'OK', blockAction: s.blockIdx === 1 ? (() => { this.setState({ phase: 'idle', claimPopup: false }); this.appToastShow('→ 跳转 KYC 认证页（原型示意）'); this.log('APP：KYC 拦截 → 点击 Verify Now 跳转 KYC 认证页'); }) : (() => { this.setState({ phase: 'idle', claimPopup: true }); this.log('APP：关闭拦截提示，回到领取弹窗（状态保持未领取）'); }),
       toggleDontShow: () => { const c = this.s(); this.setState({ dontShow: !c.dontShow }); this.log(!c.dontShow ? 'H5：勾选 Don\'t show again today' : 'H5：取消勾选 Don\'t show again today'); },
@@ -603,6 +623,7 @@ class Component extends DCLogic {
       openH5Drawer: () => { this.setState({ h5Drawer: true }); this.log('H5：打开侧边栏'); },
       closeH5Drawer: () => this.setState({ h5Drawer: false }),
       openH5Popup: () => { const c = this.s(); this.setState({ h5Popup: true, dontShow: c.h5Suppress }); this.log('H5：点击右侧活动图标 → 显示底部下载引导'); },
+      openH5DlPageFromSheet: () => { this.setState({ h5Popup: false, h5DlPage: true }); this.log('H5：点击底部下载引导 → 进入全屏下载宣传页（引导内不再提供下载按钮）'); },
       openH5DlPage: () => { const c = this.s(); this.setState({ h5Drawer: false, h5DlPage: true }); this.log('H5：Others → App Download → 显示全屏下载宣传页' + ((c.h5Logged && c.h5Claimed) ? '（已领取：无 Get 图标，不强制使用 APP）' : '')); },
       closeH5DlPage: () => { this.setState({ h5DlPage: false }); this.log('H5：下载宣传页返回首页'); },
       closeH5Popup: () => this.closeSheet(this.s()),
@@ -615,7 +636,7 @@ class Component extends DCLogic {
       h5SameDayLogin: () => this.h5Enter('sameday'),
       h5Logout: () => { this.setState({ h5Logged: false, h5Popup: true, h5Drawer: false, h5DlPage: false }); this.log('H5：退出登录 → 访客首页 → 自动弹出底部引导'); },
       goAppLogin: () => { this.setState({ appAtLogin: true }); this.log('APP：未登录点击横幅 / 活动图标 → 进入登录页（走 APP 现有注册登录流程）'); },
-      doLogin: () => { this.setState({ loggedIn: true, loginRecorded: true, appAtLogin: false, bannerClosed: false }); this.log(this.s().claimed ? 'APP：登录成功 → 已领取 → 隐藏底部横幅与右侧活动图标' : 'APP：登录成功 → 记录 APP Login；未领取 → 显示底部横幅（实时进度）与右侧活动图标'); },
+      doLogin: () => { this.setState({ loggedIn: true, loginRecorded: true, appAtLogin: false, bannerClosed: false }); this.log(this.s().claimed ? 'APP：登录成功 → 已领取 → 隐藏底部横幅与右侧活动图标' : 'APP：登录成功 → 记录 APP Login；未领取 → 显示底部横幅（活动规则）与右侧活动图标'); },
       openAppDrawer: () => { this.setState({ appDrawer: true }); this.log('APP：打开侧边栏（APP 端无 App Download 选项）'); },
       closeAppDrawer: () => this.setState({ appDrawer: false }),
       openClaimFromRail: () => { this.setState({ claimPopup: true }); this.log('APP：点击右侧活动图标 → 领取弹窗，按钮：' + btn); },
@@ -630,16 +651,22 @@ class Component extends DCLogic {
       doClaim: () => this.claim(),
       skipSuccess: () => { if (this.s().phase === 'success') { this.log('APP：点击任意处跳过成功动效'); this.finishSuccess(); } },
       appDeposit: () => this.needApp(c => { this.setState({ dep: c.dep + 500, balance: c.balance + 500 }); this.log('APP 内充值成功 +₱500 → 计入 APP Deposit'); }),
-      appSlotBet: () => this.needApp(c => { this.setState({ bet: c.bet + 2500 }); this.log(c.claimed ? 'APP 内 Slot 投注 +₱2,500 → 计入奖金提现流水稽核' : 'APP 内 Slot 有效投注 +₱2,500 → 计入 APP Valid Bet' + (c.betCfg === 'all' ? '（全部游戏合并累计）' : ' · Slot')); }),
+      appSlotBet: () => this.needApp(c => { this.setState({ bet: c.bet + 2500 }); this.log(c.claimed ? 'APP 内 Slot 投注 +₱2,500 → 计入奖金提现流水稽核' : 'APP 内 Slot 有效投注 +₱2,500 → 计入 APP Slot Valid Bet'); }),
       appCasinoBet: () => this.needApp(() => this.log('APP 内 Casino 投注 +₱2,500 → 本活动仅统计 Slot，不计入')),
       appRefund: () => this.needApp(c => {
-        if (c.claimed) { const nb = Math.max(0, c.balance - 500); const nd = Math.max(0, c.dep - 500); if (nd >= 1000) { this.setState({ dep: nd, balance: nb }); this.log('APP 充值退款 −₱500（领取后）→ 仍满足充值条件，领取状态不变'); return; } if (nb >= 188) { this.setState({ dep: nd, balance: nb - 188, claimed: false, h5Claimed: false, bannerClosed: false }); this.log('APP 充值退款 −₱500（领取后）→ 数据回滚：扣回已领取的 ₱188，条件状态与领取状态回滚为未领取'); } else { this.setState({ balance: nb }); this.log('APP 充值退款 −₱500（领取后）→ 账户余额不足以扣回 ₱188：条件状态与领取状态均不回滚'); } return; }
+        if (c.claimed) { this.setState({ dep: Math.max(0, c.dep - 500), balance: Math.max(0, c.balance - 500) }); this.log('APP 充值退款 −₱500（领取后）→ 数据回滚：已领取的 ₱188 不退回，领取状态不变；已记录异常并推送风控处理'); return; }
         const wasElig = this.eligible(c);
         this.setState({ dep: Math.max(0, c.dep - 500), balance: Math.max(0, c.balance - 500) });
-        this.log('APP 充值退款 −₱500 → 不计入 APP Deposit，进度同步回退' + (wasElig && c.dep - 500 < 1000 ? '；状态由“满足”退回“未满足”' : ''));
+        this.log('APP 充值退款 −₱500（未领取）→ 充值回滚：只回退 APP Deposit，APP Slot Valid Bet 不变' + (wasElig && c.dep - 500 < 1000 ? '；状态由“满足”退回“未满足”' : ''));
+      }),
+      appBetRollback: () => this.needApp(c => {
+        if (c.claimed) { this.setState({ bet: Math.max(0, c.bet - 2500) }); this.log('APP 注单回滚 −₱2,500（领取后）→ 已领取的 ₱188 不退回，领取状态不变；已记录异常并推送风控处理'); return; }
+        const wasElig = this.eligible(c); const nb = Math.max(0, c.bet - 2500);
+        this.setState({ bet: nb });
+        this.log('APP 注单回滚 −₱2,500（未领取）→ 有效投注回滚：只回退 APP Slot Valid Bet（回退为 ₱' + nb.toLocaleString('en-US') + '），APP Deposit 不变' + (wasElig && nb < 5000 ? '；不再满足投注条件，状态由“满足”退回“未满足”' : ''));
       }),
       h5Deposit: () => { const c = this.s(); this.setState({ balance: c.balance + 500 }); this.log('H5 端充值 +₱500 → 不计入 APP Deposit'); },
-      h5SlotBet: () => this.log('H5 端 Slot 投注 +₱2,500 → 不计入 APP Valid Bet'),
+      h5SlotBet: () => this.log('H5 端 Slot 投注 +₱2,500 → 不计入 APP Slot Valid Bet'),
       cycleBetCfg: () => { const c = this.s(); const L = this.betCfgs(); const n = L[(L.indexOf(c.betCfg) + 1) % L.length]; this.setState({ betCfg: n }); this.log('演示：后台参与游戏配置 = ' + this.betCfgName(n) + ' → 领取弹窗投注进度条同步变化'); },
       toggleFail: () => { const c = this.s(); this.setState({ failNext: !c.failNext }); },
       cycleBlock: () => { const c = this.s(); const n = (c.blockIdx + 1) % this.blocks().length; this.setState({ blockIdx: n }); this.log('演示：下次领取拦截 = ' + this.blocks()[n]); },
